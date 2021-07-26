@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest --passWithNoTests --runInBand",
-    "test:unit": "npm test -- -c jest-unit.config.js"
+    "test:unit": "npm test -- --watch -c jest-unit.config.js"
   },
   "keywords": [],
   "author": "",
