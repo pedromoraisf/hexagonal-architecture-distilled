@@ -1,0 +1,17 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest --passWithNoTests --runInBand",
+    "test:unit": "npm test -- -c jest-unit.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "git-commit-msg-linter": "^3.2.6",
+    "jest": "^27.0.6"
+  }
+}
