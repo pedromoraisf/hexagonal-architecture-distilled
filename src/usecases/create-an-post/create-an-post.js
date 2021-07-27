@@ -14,10 +14,11 @@ const createAnPostUseCase = async (
 };
 
 const validateReceivedPublication = (payload) => {
-  const payloadValuesToArray = Object.values(payload);
-  const hasInvalidPayloadProp = payloadValuesToArray.some(
-    (prop) => typeof prop !== "string"
-  );
+  const payloadValues = Object.values(payload);
+
+  const isNotString = (prop) => typeof prop !== "string";
+  const hasInvalidPayloadProp = payloadValues.some(isNotString);
+
   if (hasInvalidPayloadProp) {
     throw new Error("Received publication to be wrong");
   }
