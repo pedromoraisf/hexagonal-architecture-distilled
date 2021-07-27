@@ -1,7 +1,12 @@
 const { Post } = require("@/entities");
+const { PostRepositoryPort } = require("@/ports/database/post-repository");
 
-const createAnPostUseCase = async ({ payload = Post }) => {
+const createAnPostUseCase = async (
+  { payload = Post },
+  postRepository = PostRepositoryPort
+) => {
   validateReceivedPublication(payload);
+  const createdPost = await postRepository.create(payload);
 };
 
 const validateReceivedPublication = (payload) => {
