@@ -59,4 +59,12 @@ describe("Create an post", () => {
 
     await expect(testable).rejects.toThrow(new Error("Operational error"));
   });
+
+  test("should return correctly post created", async () => {
+    const { sut } = makeSut();
+
+    const testable = await sut(makeFixture());
+
+    expect(testable).toEqual(makeFixture());
+  });
 });
