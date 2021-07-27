@@ -28,7 +28,7 @@ describe("Create an post", () => {
       content: null,
     };
 
-    const testable = async () => await sut({ payload: wrongFixture });
+    const testable = async () => await sut(wrongFixture);
 
     await expect(testable).rejects.toThrow(
       new Error("Received publication to be wrong")
@@ -44,5 +44,19 @@ describe("Create an post", () => {
 
     expect(spyCreate).toHaveBeenCalledTimes(1);
     expect(spyCreate).toHaveBeenCalledWith(makeFixture());
+  });
+
+  test("should throw an Use Case controllated error if repository throws any low-level error", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    jest
+      .spyOn(makedPostRepositoryInMemoryAdapter, "create")
+      .mockImplementationOnce(() =>
+        Promise.reject(new Error("any_low_level_error"))
+      );
+
+    const testable = async () => await sut(makeFixture());
+
+    await expect(testable).rejects.toThrow(new Error("Operational error"));
   });
 });
