@@ -1,3 +1,3 @@
-import { Post } from "./post";
+const Post = require("./post");
 
-export { Post };
+module.exports = { Post };
