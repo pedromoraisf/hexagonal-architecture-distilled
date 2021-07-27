@@ -6,7 +6,11 @@ const createAnPostUseCase = async (
   postRepository = PostRepositoryPort
 ) => {
   validateReceivedPublication(payload);
-  const createdPost = await postRepository.create(payload);
+  try {
+    const createdPost = await postRepository.create(payload);
+  } catch {
+    throw new Error("Operational error");
+  }
 };
 
 const validateReceivedPublication = (payload) => {
