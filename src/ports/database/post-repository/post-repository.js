@@ -1,7 +1,7 @@
 const { PostToCreateDTO } = require("./dto");
 
 const PostRepositoryPort = {
-  create: (payload = PostToCreateDTO) => {
+  create: async (payload = PostToCreateDTO) => {
     throw new Error("NOT_IMPLEMENTED");
   }
 };
