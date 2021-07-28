@@ -5,13 +5,14 @@ const { HttpFrameworkPort } = require("@/ports/http-framework");
 const createAnPostUseCase = async (
   { payload = Post },
   postRepository = PostRepositoryPort,
-  httpFramework = HttpFrameworkPort
+  { ok, serverError } = HttpFrameworkPort
 ) => {
   validateReceivedPublication(payload);
   try {
-    return await postRepository.create(payload);
+    const createdPost = await postRepository.create(payload);
+    return ok(createdPost);
   } catch {
-    return httpFramework.serverError();
+    return serverError();
   }
 };
 

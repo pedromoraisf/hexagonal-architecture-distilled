@@ -61,11 +61,14 @@ describe("Create an post", () => {
     });
   });
 
-  test("should return correctly post created", async () => {
+  test("should return correctly ok response with post created", async () => {
     const { sut } = makeSut();
 
     const testable = await sut(makeFixture());
 
-    expect(testable).toEqual(makeFixture());
+    expect(testable).toEqual({
+      statusCode: 200,
+      body: makeFixture()
+    });
   });
 });
