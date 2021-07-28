@@ -1,6 +1,6 @@
 const PostToCreateDTO = {
   title: "",
-  content: "",
+  content: ""
 };
 
 module.exports = { PostToCreateDTO };
