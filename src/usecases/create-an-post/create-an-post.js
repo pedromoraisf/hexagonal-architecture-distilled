@@ -1,5 +1,6 @@
 const { PostRepositoryPort } = require("@/ports/database/post-repository");
 const { HttpFrameworkPort } = require("@/ports/http-framework");
+const { validateReceivedPublication } = require("../helpers");
 const { createAnPostDTO } = require("./dto");
 
 const createAnPostUseCase = async (
@@ -13,17 +14,6 @@ const createAnPostUseCase = async (
     return ok(createdPost);
   } catch {
     return serverError();
-  }
-};
-
-const validateReceivedPublication = (payload) => {
-  const payloadValues = Object.values(payload);
-
-  const isNotString = (prop) => typeof prop !== "string";
-  const hasInvalidPayloadProp = payloadValues.some(isNotString);
-
-  if (hasInvalidPayloadProp) {
-    throw new Error("Received publication to be wrong");
   }
 };
 
