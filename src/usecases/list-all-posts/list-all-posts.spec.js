@@ -20,9 +20,6 @@ describe("List all posts", () => {
   test("should call repository correctly to list all posts", async () => {
     const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
 
-    const makedFakePersistedFixture = makeFakePersistedFixture();
-    makedPostRepositoryInMemoryAdapter.posts.push(makedFakePersistedFixture);
-
     const spyListAll = jest.spyOn(makedPostRepositoryInMemoryAdapter, "listAll");
 
     await sut();
@@ -44,6 +41,20 @@ describe("List all posts", () => {
       body: {
         message: "Internal server error"
       }
+    });
+  });
+
+  test("should return correctly ok response with persisted posts", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    const makedFakePersistedFixture = makeFakePersistedFixture();
+    makedPostRepositoryInMemoryAdapter.posts.push(makedFakePersistedFixture);
+
+    const testable = await sut();
+
+    expect(testable).toEqual({
+      statusCode: 200,
+      body: [makedFakePersistedFixture]
     });
   });
 });
