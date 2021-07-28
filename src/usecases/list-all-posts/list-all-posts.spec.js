@@ -29,4 +29,21 @@ describe("List all posts", () => {
 
     expect(spyListAll).toHaveBeenCalledTimes(1);
   });
+
+  test("should return an serverError if repository throws any low-level error", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    jest
+      .spyOn(makedPostRepositoryInMemoryAdapter, "listAll")
+      .mockImplementationOnce(() => Promise.reject(new Error("any_low_level_error")));
+
+    const testable = await sut();
+
+    expect(testable).toEqual({
+      statusCode: 500,
+      body: {
+        message: "Internal server error"
+      }
+    });
+  });
 });
