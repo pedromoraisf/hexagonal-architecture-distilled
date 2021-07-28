@@ -4,6 +4,10 @@ const HttpFrameworkMockAdapter = () => ({
     body: {
       message
     }
+  }),
+  ok: (data) => ({
+    statusCode: 200,
+    body: data
   })
 });
 
