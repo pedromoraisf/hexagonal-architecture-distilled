@@ -1,21 +1,21 @@
 const createAnPostUseCase = require("./create-an-post");
-const {
-  PostRepositoryInMemoryAdapter,
-} = require("@/adapters/database/in-memory");
+const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
+const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
 
 const makeFixture = () => ({
   title: "any_title",
-  content: "any_content",
+  content: "any_content"
 });
 
 const makeSut = () => {
   const makedPostRepositoryInMemoryAdapter = PostRepositoryInMemoryAdapter();
+  const makedHttpFramworkMockAdapter = HttpFrameworkMockAdapter();
   const sut = (payload) =>
-    createAnPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter);
+    createAnPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter);
 
   return {
     sut,
-    makedPostRepositoryInMemoryAdapter,
+    makedPostRepositoryInMemoryAdapter
   };
 };
 
@@ -25,14 +25,12 @@ describe("Create an post", () => {
 
     const wrongFixture = {
       ...makeFixture(),
-      content: null,
+      content: null
     };
 
     const testable = async () => await sut(wrongFixture);
 
-    await expect(testable).rejects.toThrow(
-      new Error("Received publication to be wrong")
-    );
+    await expect(testable).rejects.toThrow(new Error("Received publication to be wrong"));
   });
 
   test("should call repository correctly to create an post", async () => {
@@ -46,18 +44,21 @@ describe("Create an post", () => {
     expect(spyCreate).toHaveBeenCalledWith(makeFixture());
   });
 
-  test("should throw an Use Case controllated error if repository throws any low-level error", async () => {
+  test("should return an serverError if repository throws any low-level error", async () => {
     const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
 
     jest
       .spyOn(makedPostRepositoryInMemoryAdapter, "create")
-      .mockImplementationOnce(() =>
-        Promise.reject(new Error("any_low_level_error"))
-      );
+      .mockImplementationOnce(() => Promise.reject(new Error("any_low_level_error")));
 
-    const testable = async () => await sut(makeFixture());
+    const testable = await sut(makeFixture());
 
-    await expect(testable).rejects.toThrow(new Error("Operational error"));
+    expect(testable).toEqual({
+      statusCode: 500,
+      body: {
+        message: "Internal server error"
+      }
+    });
   });
 
   test("should return correctly post created", async () => {

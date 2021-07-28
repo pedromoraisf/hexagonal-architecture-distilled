@@ -1,15 +1,17 @@
 const { Post } = require("@/entities");
 const { PostRepositoryPort } = require("@/ports/database/post-repository");
+const { HttpFrameworkPort } = require("@/ports/http-framework");
 
 const createAnPostUseCase = async (
   { payload = Post },
-  postRepository = PostRepositoryPort
+  postRepository = PostRepositoryPort,
+  httpFramework = HttpFrameworkPort
 ) => {
   validateReceivedPublication(payload);
   try {
     return await postRepository.create(payload);
   } catch {
-    throw new Error("Operational error");
+    return httpFramework.serverError();
   }
 };
 
