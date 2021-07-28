@@ -1,9 +1,9 @@
-const { Post } = require("@/models");
 const { PostRepositoryPort } = require("@/ports/database/post-repository");
 const { HttpFrameworkPort } = require("@/ports/http-framework");
+const { createAnPostDTO } = require("./dto");
 
 const createAnPostUseCase = async (
-  { payload = Post },
+  { payload = createAnPostDTO },
   postRepository = PostRepositoryPort,
   { ok, serverError } = HttpFrameworkPort
 ) => {
