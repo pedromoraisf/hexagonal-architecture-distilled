@@ -1,7 +1,7 @@
 const listAllPostsUseCase = require("./list-all-posts");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
-const { Post } = require("@/entities");
+const { Post } = require("@/models");
 
 const makeFakePersistedFixture = (post = Post) => post;
 

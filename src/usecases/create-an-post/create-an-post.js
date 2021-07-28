@@ -1,4 +1,4 @@
-const { Post } = require("@/entities");
+const { Post } = require("@/models");
 const { PostRepositoryPort } = require("@/ports/database/post-repository");
 const { HttpFrameworkPort } = require("@/ports/http-framework");
 
