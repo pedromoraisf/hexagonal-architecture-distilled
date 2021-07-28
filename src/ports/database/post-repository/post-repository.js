@@ -1,9 +1,9 @@
 const { PostToCreateDTO } = require("./dto");
 
-const PostRepositoryPort = () => ({
+const PostRepositoryPort = {
   create: (payload = PostToCreateDTO) => {
     throw new Error("NOT_IMPLEMENTED");
-  },
-});
+  }
+};
 
 module.exports = PostRepositoryPort;
