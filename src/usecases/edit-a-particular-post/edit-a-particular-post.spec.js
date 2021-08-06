@@ -38,4 +38,16 @@ describe("Edit a particular post", () => {
 
     await expect(testable).rejects.toThrow(new Error("Received publication to be wrong"));
   });
+
+  test("should call repository correctly to edit a particular post", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    const spyUpdate = jest.spyOn(makedPostRepositoryInMemoryAdapter, "update");
+    spyUpdate.mockImplementationOnce(() => Promise.resolve());
+
+    await sut(makeFixture());
+
+    expect(spyUpdate).toHaveBeenCalledTimes(1);
+    expect(spyUpdate).toHaveBeenCalledWith(makeFixture());
+  });
 });
