@@ -1,5 +1,6 @@
-const { Post } = require("@/models");
-
-const createAnPostDTO = Post;
+const createAnPostDTO = {
+  title: "",
+  content: ""
+};
 
 module.exports = { createAnPostDTO };

@@ -1,6 +1,9 @@
 const editAParticularPostDTO = {
   id: "",
-  data: {}
+  data: {
+    title: "",
+    content: ""
+  }
 };
 
 module.exports = { editAParticularPostDTO };
