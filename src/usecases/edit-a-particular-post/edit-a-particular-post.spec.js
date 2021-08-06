@@ -2,6 +2,11 @@ const editAParticularPostUseCase = require("./edit-a-particular-post");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
 
+const makeFixtureToUpdate = () => ({
+  title: "any_title",
+  content: "any_content"
+});
+
 const makeFixture = () => ({
   id: "any_id",
   data: {
@@ -78,6 +83,19 @@ describe("Edit a particular post", () => {
       body: {
         message: "Internal server error"
       }
+    });
+  });
+
+  test("should return correctly ok response with post update confirmation", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    await makedPostRepositoryInMemoryAdapter.create(makeFixtureToUpdate());
+
+    const testable = await sut(makeFixture());
+
+    expect(testable).toEqual({
+      statusCode: 200,
+      body: "Post has been updated"
     });
   });
 });
