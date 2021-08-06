@@ -6,12 +6,13 @@ const { editAParticularPostDTO } = require("./dto");
 const editAParticularPostUseCase = async (
   { payload = editAParticularPostDTO },
   postRepository = PostRepositoryPort,
-  { badRequest, serverError } = HttpFrameworkPort
+  { badRequest, serverError, ok } = HttpFrameworkPort
 ) => {
   validateReceivedPublication(payload.data);
   try {
     const postHasUpdated = await postRepository.update(payload);
     if (!postHasUpdated) return badRequest("The publication was not found");
+    return ok("Post has been updated");
   } catch {
     return serverError();
   }
