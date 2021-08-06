@@ -15,7 +15,7 @@ const PostRepositoryInMemoryAdapter = () => ({
     const findedPostIndex = this.posts.findIndex((post) => post._id === payload.id);
     const NOT_FINDED = -1;
     if (findedPostIndex === NOT_FINDED) {
-      return Promise.reject(new Error("The register was not found"));
+      return Promise.resolve(false);
     }
 
     this.posts.splice(findedPostIndex, 1, { ...payload.data, _id: payload.id });
