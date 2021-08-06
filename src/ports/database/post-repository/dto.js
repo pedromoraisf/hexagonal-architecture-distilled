@@ -3,4 +3,12 @@ const PostToCreateDTO = {
   content: ""
 };
 
-module.exports = { PostToCreateDTO };
+const PostToEditDTO = {
+  id: "",
+  data: {
+    title: "",
+    content: ""
+  }
+};
+
+module.exports = { PostToCreateDTO, PostToEditDTO };
