@@ -63,4 +63,21 @@ describe("Edit a particular post", () => {
       }
     });
   });
+
+  test("should return an serverError if repository throws any low-level error", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    jest
+      .spyOn(makedPostRepositoryInMemoryAdapter, "update")
+      .mockImplementationOnce(() => Promise.reject(new Error("any_low_level_error")));
+
+    const testable = await sut(makeFixture());
+
+    expect(testable).toEqual({
+      statusCode: 500,
+      body: {
+        message: "Internal server error"
+      }
+    });
+  });
 });
