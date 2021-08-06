@@ -4,6 +4,9 @@ const HttpFrameworkPort = {
   },
   ok: (data) => {
     throw new Error("NOT_IMPLEMENTED");
+  },
+  badRequest: (message = "") => {
+    throw new Error("NOT_IMPLEMENTED");
   }
 };
 
