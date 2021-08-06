@@ -68,7 +68,10 @@ describe("Create an post", () => {
 
     expect(testable).toEqual({
       statusCode: 200,
-      body: makeFixture()
+      body: {
+        ...makeFixture(),
+        _id: "any_id"
+      }
     });
   });
 });
