@@ -3,7 +3,7 @@ const { HttpFrameworkPort } = require("@/ports/http-framework");
 const { validateReceivedPublication } = require("../helpers");
 const { createAnPostDTO } = require("./dto");
 
-const createAnPostUseCase = async (
+const createAPostUseCase = async (
   { payload = createAnPostDTO },
   postRepository = PostRepositoryPort,
   { ok, serverError } = HttpFrameworkPort
@@ -17,4 +17,4 @@ const createAnPostUseCase = async (
   }
 };
 
-module.exports = createAnPostUseCase;
+module.exports = createAPostUseCase;

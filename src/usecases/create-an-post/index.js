@@ -1,3 +1,3 @@
-const createAnPostUseCase = require("./create-an-post");
+const createAPostUseCase = require("./create-a-post");
 
-module.exports = { createAnPostUseCase };
+module.exports = { createAPostUseCase };

@@ -1,4 +1,4 @@
-const createAnPostUseCase = require("./create-an-post");
+const createAPostUseCase = require("./create-a-post");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
 
@@ -11,7 +11,7 @@ const makeSut = () => {
   const makedPostRepositoryInMemoryAdapter = PostRepositoryInMemoryAdapter();
   const makedHttpFramworkMockAdapter = HttpFrameworkMockAdapter();
   const sut = (payload) =>
-    createAnPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter);
+    createAPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter);
 
   return {
     sut,
@@ -19,8 +19,8 @@ const makeSut = () => {
   };
 };
 
-describe("Create an post", () => {
-  test("should validate all required properties to create an post", async () => {
+describe("Create a post", () => {
+  test("should validate all required properties to create a post", async () => {
     const { sut } = makeSut();
 
     const wrongFixture = {
@@ -33,7 +33,7 @@ describe("Create an post", () => {
     await expect(testable).rejects.toThrow(new Error("Received publication to be wrong"));
   });
 
-  test("should call repository correctly to create an post", async () => {
+  test("should call repository correctly to create a post", async () => {
     const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
 
     const spyCreate = jest.spyOn(makedPostRepositoryInMemoryAdapter, "create");

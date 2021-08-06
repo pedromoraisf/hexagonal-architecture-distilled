@@ -1,4 +1,4 @@
-<h1 align="center">#0001 Create an post</h1>
+<h1 align="center">#0001 Create a post</h1>
 
 <h3>CHARACTERISTIC INFORMATION</h3>
 
