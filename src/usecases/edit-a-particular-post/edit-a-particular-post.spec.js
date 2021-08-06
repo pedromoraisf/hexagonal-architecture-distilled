@@ -43,11 +43,24 @@ describe("Edit a particular post", () => {
     const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
 
     const spyUpdate = jest.spyOn(makedPostRepositoryInMemoryAdapter, "update");
-    spyUpdate.mockImplementationOnce(() => Promise.resolve());
+    spyUpdate.mockImplementationOnce(() => Promise.resolve(true));
 
     await sut(makeFixture());
 
     expect(spyUpdate).toHaveBeenCalledTimes(1);
     expect(spyUpdate).toHaveBeenCalledWith(makeFixture());
+  });
+
+  test("should return an badRequest if repository not find the requested post", async () => {
+    const { sut } = makeSut();
+
+    const testable = await sut(makeFixture());
+
+    expect(testable).toEqual({
+      statusCode: 404,
+      body: {
+        message: "The publication was not found"
+      }
+    });
   });
 });
