@@ -8,6 +8,12 @@ const HttpFrameworkMockAdapter = () => ({
   ok: (data) => ({
     statusCode: 200,
     body: data
+  }),
+  badRequest: (message = "") => ({
+    statusCode: 404,
+    body: {
+      message
+    }
   })
 });
 
