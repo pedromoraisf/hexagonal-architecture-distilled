@@ -3,19 +3,18 @@ const { HttpFrameworkPort } = require("@/ports/http-framework");
 const { validateReceivedPublication } = require("../helpers");
 const { editAParticularPostDTO } = require("./dto");
 
-const ExceptionEnums = {
-  NOT_FOUND: 404
-};
-
 const editAParticularPostUseCase = async (
   { payload = editAParticularPostDTO },
   postRepository = PostRepositoryPort,
-  { badRequest } = HttpFrameworkPort
+  { badRequest, serverError } = HttpFrameworkPort
 ) => {
   validateReceivedPublication(payload.data);
-
-  const postHasUpdated = await postRepository.update(payload);
-  if (!postHasUpdated) return badRequest("The publication was not found");
+  try {
+    const postHasUpdated = await postRepository.update(payload);
+    if (!postHasUpdated) return badRequest("The publication was not found");
+  } catch {
+    return serverError();
+  }
 };
 
 module.exports = editAParticularPostUseCase;
