@@ -1,7 +1,11 @@
 const getSpecificPostUseCase = require("./get-specific-post");
-const { handleErrorDecorator } = require("./../decorators");
+const { handleErrorDecorator } = require("../decorators");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
+
+const makeFixture = () => ({
+  id: "any_id"
+});
 
 const makeSut = () => {
   const makedPostRepositoryInMemoryAdapter = PostRepositoryInMemoryAdapter();
@@ -30,5 +34,17 @@ describe("Get specific post", () => {
         message: "Received publication to be wrong"
       }
     });
+  });
+
+  test("should call repository correctly to get a specific post", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    const spyUpdate = jest.spyOn(makedPostRepositoryInMemoryAdapter, "listOne");
+    spyUpdate.mockImplementationOnce(() => Promise.resolve({}));
+
+    await sut(makeFixture());
+
+    expect(spyUpdate).toHaveBeenCalledTimes(1);
+    expect(spyUpdate).toHaveBeenCalledWith(makeFixture());
   });
 });
