@@ -3,6 +3,6 @@ const makeErrorPattern = (
     type: "",
     payload: ""
   }
-) => JSON.stringify(e);
+) => new Error(JSON.stringify(e));
 
 module.exports = makeErrorPattern;

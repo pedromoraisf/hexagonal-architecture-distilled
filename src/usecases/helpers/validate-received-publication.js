@@ -7,7 +7,7 @@ const validateReceivedPublication = (payload) => {
   const hasInvalidPayloadProp = payloadValues.some(isNotString);
 
   if (hasInvalidPayloadProp) {
-    throw new Error(makeErrorPattern({ type: Errors.BAD_REQUEST, payload: "Received publication to be wrong" }));
+    throw makeErrorPattern({ type: Errors.BAD_REQUEST, payload: "Received publication to be wrong" });
   }
 };
 

@@ -83,9 +83,7 @@ describe("Edit a particular post", () => {
     const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
 
     const makedError = makeErrorPattern({ type: Errors.SERVER_ERROR });
-    jest
-      .spyOn(makedPostRepositoryInMemoryAdapter, "update")
-      .mockImplementationOnce(() => Promise.reject(new Error(makedError)));
+    jest.spyOn(makedPostRepositoryInMemoryAdapter, "update").mockImplementationOnce(() => Promise.reject(makedError));
 
     const testable = await sut(makeFixture());
 

@@ -35,9 +35,7 @@ describe("List all posts", () => {
     const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
 
     const makedError = makeErrorPattern({ type: Errors.SERVER_ERROR });
-    jest
-      .spyOn(makedPostRepositoryInMemoryAdapter, "listAll")
-      .mockImplementationOnce(() => Promise.reject(new Error(makedError)));
+    jest.spyOn(makedPostRepositoryInMemoryAdapter, "listAll").mockImplementationOnce(() => Promise.reject(makedError));
 
     const testable = await sut();
 
