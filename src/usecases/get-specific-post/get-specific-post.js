@@ -10,6 +10,9 @@ const getSpecificPostUseCase = async (
 ) => {
   validateReceivedPublication(payload);
   const persistedPost = await postRepository.listOne(payload);
+  if (!persistedPost) {
+    return badRequest("Post not found");
+  }
 };
 
 module.exports = getSpecificPostUseCase;
