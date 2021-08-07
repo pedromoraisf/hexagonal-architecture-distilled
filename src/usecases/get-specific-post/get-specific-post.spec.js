@@ -4,6 +4,8 @@ const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
 const { makeErrorPattern, Errors } = require("@/shared/error");
 
+const makeFakePersistedFixture = (post = { _id: "any_id", title: "any_title", content: "any_content" }) => post;
+
 const makeFixture = () => ({
   id: "any_id"
 });
@@ -75,6 +77,19 @@ describe("Get specific post", () => {
       body: {
         message: "Internal server error"
       }
+    });
+  });
+
+  test("should return correctly ok response with persisted post", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    makedPostRepositoryInMemoryAdapter.posts.push(makeFakePersistedFixture());
+
+    const testable = await sut(makeFixture());
+
+    expect(testable).toEqual({
+      statusCode: 200,
+      body: makeFakePersistedFixture()
     });
   });
 });
