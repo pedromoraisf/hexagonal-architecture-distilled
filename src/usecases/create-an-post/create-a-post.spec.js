@@ -2,6 +2,7 @@ const createAPostUseCase = require("./create-a-post");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
 const { makeErrorPattern, Errors } = require("@/shared/error");
+const { handleErrorDecorator } = require("../decorators");
 
 const makeFixture = () => ({
   title: "any_title",
@@ -11,8 +12,11 @@ const makeFixture = () => ({
 const makeSut = () => {
   const makedPostRepositoryInMemoryAdapter = PostRepositoryInMemoryAdapter();
   const makedHttpFramworkMockAdapter = HttpFrameworkMockAdapter();
-  const sut = (payload) =>
-    createAPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter);
+  const sut = (payload) => {
+    const makedUseCase = () =>
+      createAPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter);
+    return handleErrorDecorator(makedUseCase, makedHttpFramworkMockAdapter);
+  };
 
   return {
     sut,

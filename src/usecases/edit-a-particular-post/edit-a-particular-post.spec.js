@@ -1,4 +1,5 @@
 const editAParticularPostUseCase = require("./edit-a-particular-post");
+const { handleErrorDecorator } = require("./../decorators");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
 const { Errors, makeErrorPattern } = require("@/shared/error");
@@ -19,8 +20,11 @@ const makeFixture = () => ({
 const makeSut = () => {
   const makedPostRepositoryInMemoryAdapter = PostRepositoryInMemoryAdapter();
   const makedHttpFrameworkMockAdapter = HttpFrameworkMockAdapter();
-  const sut = (payload) =>
-    editAParticularPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter, makedHttpFrameworkMockAdapter);
+  const sut = (payload) => {
+    const makedUseCase = () =>
+      editAParticularPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter, makedHttpFrameworkMockAdapter);
+    return handleErrorDecorator(makedUseCase, makedHttpFrameworkMockAdapter);
+  };
 
   return {
     sut,
