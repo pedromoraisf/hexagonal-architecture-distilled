@@ -1,4 +1,4 @@
-const editAParticularPostDTO = {
+const EditAParticularPostDTO = {
   id: "",
   data: {
     title: "",
@@ -6,4 +6,4 @@ const editAParticularPostDTO = {
   }
 };
 
-module.exports = { editAParticularPostDTO };
+module.exports = { EditAParticularPostDTO };

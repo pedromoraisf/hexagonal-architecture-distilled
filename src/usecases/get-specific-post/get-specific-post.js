@@ -1,10 +1,10 @@
 const { PostRepositoryPort } = require("@/ports/database");
 const { HttpFrameworkPort } = require("@/ports/http-framework");
 const { validateReceivedPublication } = require("../helpers");
-const { getSpecificPostDTO } = require("./dto");
+const { GetSpecificPostDTO } = require("./dto");
 
 const getSpecificPostUseCase = async (
-  { payload = getSpecificPostDTO },
+  { payload = GetSpecificPostDTO },
   postRepository = PostRepositoryPort,
   { badRequest, ok } = HttpFrameworkPort
 ) => {
