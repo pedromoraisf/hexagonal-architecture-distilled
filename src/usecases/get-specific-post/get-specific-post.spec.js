@@ -49,6 +49,19 @@ describe("Get specific post", () => {
     expect(spyUpdate).toHaveBeenCalledWith(makeFixture());
   });
 
+  test("should return badRequest if wanted post is not finded", async () => {
+    const { sut } = makeSut();
+
+    const testable = await sut(makeFixture());
+
+    expect(testable).toEqual({
+      statusCode: 404,
+      body: {
+        message: "Post not found"
+      }
+    });
+  });
+
   test("should return an serverError if repository throws any low-level error", async () => {
     const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
 
