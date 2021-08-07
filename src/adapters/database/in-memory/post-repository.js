@@ -1,5 +1,4 @@
-const { PostToCreateDTO } = require("@/ports/database/post-repository");
-const { PostToEditDTO } = require("@/ports/database/post-repository/dto");
+const { PostToCreateDTO, PostToEditDTO, PostToGetDTO } = require("@/ports/database/post-repository/dto");
 
 const PostRepositoryInMemoryAdapter = () => ({
   posts: [],
@@ -21,6 +20,10 @@ const PostRepositoryInMemoryAdapter = () => ({
     this.posts.splice(findedPostIndex, 1, { ...payload.data, _id: payload.id });
 
     return Promise.resolve(true);
+  },
+  listOne: function (payload = PostToGetDTO) {
+    const findedPost = this.posts.find((post) => post._id === payload.id);
+    return Promise.resolve(findedPost || false);
   }
 });
 

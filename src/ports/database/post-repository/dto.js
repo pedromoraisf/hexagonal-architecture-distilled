@@ -11,4 +11,8 @@ const PostToEditDTO = {
   }
 };
 
-module.exports = { PostToCreateDTO, PostToEditDTO };
+const PostToGetDTO = {
+  id: ""
+};
+
+module.exports = { PostToCreateDTO, PostToEditDTO, PostToGetDTO };
