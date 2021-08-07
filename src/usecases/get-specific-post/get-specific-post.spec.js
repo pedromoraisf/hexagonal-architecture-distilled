@@ -2,6 +2,7 @@ const getSpecificPostUseCase = require("./get-specific-post");
 const { handleErrorDecorator } = require("../decorators");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
+const { makeErrorPattern, Errors } = require("@/shared/error");
 
 const makeFixture = () => ({
   id: "any_id"
@@ -46,5 +47,21 @@ describe("Get specific post", () => {
 
     expect(spyUpdate).toHaveBeenCalledTimes(1);
     expect(spyUpdate).toHaveBeenCalledWith(makeFixture());
+  });
+
+  test("should return an serverError if repository throws any low-level error", async () => {
+    const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
+
+    const makedError = makeErrorPattern({ type: Errors.SERVER_ERROR });
+    jest.spyOn(makedPostRepositoryInMemoryAdapter, "listOne").mockImplementationOnce(() => Promise.reject(makedError));
+
+    const testable = await sut();
+
+    expect(testable).toEqual({
+      statusCode: 500,
+      body: {
+        message: "Internal server error"
+      }
+    });
   });
 });
