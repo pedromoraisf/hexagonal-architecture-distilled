@@ -13,6 +13,7 @@ const getSpecificPostUseCase = async (
   if (!persistedPost) {
     return badRequest("Post not found");
   }
+  return ok(persistedPost);
 };
 
 module.exports = getSpecificPostUseCase;
