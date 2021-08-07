@@ -9,6 +9,7 @@ const getSpecificPostUseCase = async (
   { badRequest, ok } = HttpFrameworkPort
 ) => {
   validateReceivedPublication(payload);
+  const persistedPost = await postRepository.listOne(payload);
 };
 
 module.exports = getSpecificPostUseCase;
