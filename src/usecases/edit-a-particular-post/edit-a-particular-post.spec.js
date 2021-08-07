@@ -1,6 +1,7 @@
 const editAParticularPostUseCase = require("./edit-a-particular-post");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
+const { Errors, makeErrorPattern } = require("@/shared/error");
 
 const makeFixtureToUpdate = () => ({
   title: "any_title",
@@ -39,9 +40,14 @@ describe("Edit a particular post", () => {
       }
     };
 
-    const testable = async () => await sut(wrongFixture);
+    const testable = await sut(wrongFixture);
 
-    await expect(testable).rejects.toThrow(new Error("Received publication to be wrong"));
+    expect(testable).toEqual({
+      statusCode: 404,
+      body: {
+        message: "Received publication to be wrong"
+      }
+    });
   });
 
   test("should call repository correctly to edit a particular post", async () => {
@@ -72,9 +78,10 @@ describe("Edit a particular post", () => {
   test("should return an serverError if repository throws any low-level error", async () => {
     const { sut, makedPostRepositoryInMemoryAdapter } = makeSut();
 
+    const makedError = makeErrorPattern({ type: Errors.SERVER_ERROR });
     jest
       .spyOn(makedPostRepositoryInMemoryAdapter, "update")
-      .mockImplementationOnce(() => Promise.reject(new Error("any_low_level_error")));
+      .mockImplementationOnce(() => Promise.reject(new Error(makedError)));
 
     const testable = await sut(makeFixture());
 

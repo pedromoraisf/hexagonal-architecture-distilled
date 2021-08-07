@@ -1,5 +1,6 @@
 const { PostRepositoryPort } = require("@/ports/database");
 const { HttpFrameworkPort } = require("@/ports/http-framework");
+const { Errors } = require("@/shared/error");
 const { validateReceivedPublication } = require("../helpers");
 const { editAParticularPostDTO } = require("./dto");
 
@@ -8,13 +9,17 @@ const editAParticularPostUseCase = async (
   postRepository = PostRepositoryPort,
   { badRequest, serverError, ok } = HttpFrameworkPort
 ) => {
-  validateReceivedPublication(payload.data);
   try {
+    validateReceivedPublication(payload.data);
     const postHasUpdated = await postRepository.update(payload);
     if (!postHasUpdated) return badRequest("The publication was not found");
     return ok("Post has been updated");
-  } catch {
-    return serverError();
+  } catch ({ message: error }) {
+    const parsedError = JSON.parse(error);
+    return {
+      [Errors.BAD_REQUEST]: badRequest(parsedError.payload),
+      [Errors.SERVER_ERROR]: serverError(parsedError.payload)
+    }[parsedError.type];
   }
 };
 

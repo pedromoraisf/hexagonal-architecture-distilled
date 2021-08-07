@@ -1,3 +1,5 @@
+const { makeErrorPattern, Errors } = require("@/shared/error");
+
 const validateReceivedPublication = (payload) => {
   const payloadValues = Object.values(payload);
 
@@ -5,7 +7,7 @@ const validateReceivedPublication = (payload) => {
   const hasInvalidPayloadProp = payloadValues.some(isNotString);
 
   if (hasInvalidPayloadProp) {
-    throw new Error("Received publication to be wrong");
+    throw new Error(makeErrorPattern({ type: Errors.BAD_REQUEST, payload: "Received publication to be wrong" }));
   }
 };
 
