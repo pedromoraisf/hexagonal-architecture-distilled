@@ -1,5 +1,5 @@
 const { nanoid } = require("nanoid");
-const { PostToCreateDTO, PostToGetDTO } = require("@/ports/database/post-repository/dto");
+const { PostToCreateDTO, PostToGetDTO, PostToEditDTO } = require("@/ports/database/post-repository/dto");
 const { mongoHelper } = require("../helpers");
 const { makeErrorPattern, Errors } = require("@/shared/error");
 
@@ -24,6 +24,22 @@ const PostRepositoryMongoDbAdapter = () => ({
     try {
       const collection = await this.getCollection();
       return collection.find({}).toArray();
+    } catch (e) {
+      throw makeErrorPattern({ type: Errors.SERVER_ERROR, payload: e.message });
+    }
+  },
+  async update(payload = PostToEditDTO) {
+    try {
+      const collection = await this.getCollection();
+      const updatedValue = await collection.findOneAndUpdate(
+        {
+          _id: payload.id
+        },
+        {
+          $set: payload.data
+        }
+      );
+      return !!updatedValue.ok;
     } catch (e) {
       throw makeErrorPattern({ type: Errors.SERVER_ERROR, payload: e.message });
     }
