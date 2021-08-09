@@ -1,6 +1,4 @@
-const { mongoHelper } = require(".");
-
-const sut = mongoHelper();
+const { mongoHelper: sut } = require(".");
 
 describe("Mongo Helper", () => {
   beforeAll(async () => {

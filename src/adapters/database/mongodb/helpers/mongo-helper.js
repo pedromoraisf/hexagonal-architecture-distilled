@@ -1,8 +1,8 @@
 const { MongoClient } = require("mongodb");
 
-const mongoHelper = () => ({
+const mongoHelper = {
   client: null,
-  url: null,
+  url: "",
   async connect(url) {
     this.url = url;
     this.client = await MongoClient.connect(url, {
@@ -18,6 +18,6 @@ const mongoHelper = () => ({
     if (!this.client?.topology?.isConnected()) await this.connect(this.url);
     return this.client.db().collection(name);
   }
-});
+};
 
 module.exports = mongoHelper;
