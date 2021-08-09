@@ -34,7 +34,7 @@ It is not directly attached to any kind of UML diagram.
 
 ## // TODO
 
-- [ ] Implement the MongoDB adapter.
+- [x] Implement the MongoDB adapter.
 - [ ] Implement the Express adapter.
 - [ ] Create Integration Tests to View Results.
 - [ ] Make a Markdown for each conceptual folder (usecases, ports, adapters) explaining every detail.
