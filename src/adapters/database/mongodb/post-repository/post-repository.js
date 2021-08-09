@@ -9,27 +9,23 @@ const PostRepositoryMongoDbAdapter = () => ({
     return mongoHelper.getCollection(this.COLLECTION_NAME);
   },
   async create(payload = PostToCreateDTO) {
-    try {
+    return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
       const { acknowledged = false } = await collection.insertOne({
         ...payload,
         _id: nanoid()
       });
       return acknowledged;
-    } catch (e) {
-      throw makeErrorPattern({ type: Errors.SERVER_ERROR, payload: e.message });
-    }
+    });
   },
   async listAll() {
-    try {
+    return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
       return collection.find({}).toArray();
-    } catch (e) {
-      throw makeErrorPattern({ type: Errors.SERVER_ERROR, payload: e.message });
-    }
+    });
   },
   async update(payload = PostToEditDTO) {
-    try {
+    return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
       const updatedValue = await collection.findOneAndUpdate(
         {
@@ -40,17 +36,20 @@ const PostRepositoryMongoDbAdapter = () => ({
         }
       );
       return !!updatedValue.ok;
-    } catch (e) {
-      throw makeErrorPattern({ type: Errors.SERVER_ERROR, payload: e.message });
-    }
+    });
   },
   async listOne(payload = PostToGetDTO) {
-    try {
+    return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
       const findedPost = await collection.findOne({
         id: payload.id
       });
       return findedPost || false;
+    });
+  },
+  async handleErrorDecorator(cb) {
+    try {
+      return cb();
     } catch (e) {
       throw makeErrorPattern({ type: Errors.SERVER_ERROR, payload: e.message });
     }
