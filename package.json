@@ -6,14 +6,19 @@
   "scripts": {
     "fmt": "prettier --write ./src",
     "test": "jest --passWithNoTests --runInBand",
-    "test:unit": "npm test -- --watch -c jest-unit.config.js"
+    "test:unit": "npm test -- --watch -c jest-unit.config.js",
+    "test:integration": "npm test -- --watch -c jest-integration.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.0.1",
     "git-commit-msg-linter": "^3.2.6",
     "jest": "^27.0.6",
     "prettier": "^2.3.2"
+  },
+  "dependencies": {
+    "mongodb": "^4.1.0"
   }
 }
