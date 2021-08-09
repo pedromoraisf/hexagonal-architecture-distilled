@@ -19,6 +19,14 @@ const PostRepositoryMongoDbAdapter = () => ({
     } catch (e) {
       throw makeErrorPattern({ type: Errors.SERVER_ERROR, payload: e.message });
     }
+  },
+  async listAll() {
+    try {
+      const collection = await this.getCollection();
+      return collection.find({}).toArray();
+    } catch (e) {
+      throw makeErrorPattern({ type: Errors.SERVER_ERROR, payload: e.message });
+    }
   }
 });
 
