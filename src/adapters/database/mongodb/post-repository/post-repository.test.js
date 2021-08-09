@@ -3,7 +3,7 @@ const { mongoHelper } = require("./../helpers");
 const sutDriver = require("./driver");
 
 const makeFixtureToInsert = () => ({
-  title: "any_integration_test_post",
+  title: "any_integration_test_title",
   content: "any_integration_test_content"
 });
 
@@ -46,10 +46,25 @@ describe("Post Repository MongoDB Adapter", () => {
     });
   });
 
+  describe("update", () => {
+    test("should update a post", async () => {
+      const { insertedId = "" } = await driver.createPostAndReturnId(makeFixtureToInsert());
+
+      const testable = await sut.update({
+        id: insertedId,
+        data: {
+          title: "any_updated_title"
+        }
+      });
+
+      expect(testable).toBeTruthy();
+    });
+  });
+
   describe("List One", () => {
     test("should list a specific persisted post", async () => {
       const makedFixtureToInsert = makeFixtureToInsert();
-      const { insertedId = "" } = await driver.createPostAndReturnId(makeFixtureToInsert());
+      const { insertedId = "" } = await driver.createPostAndReturnId(makedFixtureToInsert);
 
       const testable = await sut.listOne(insertedId);
 
