@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ./src/index.js",
     "fmt": "prettier --write ./src",
+    "lint": "eslint ./src ./e2e --ext .js --fix",
     "test": "jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit.config.js",
     "test:integration": "npm test -- --watch -c jest-integration.config.js",
@@ -28,6 +29,7 @@
   "license": "ISC",
   "devDependencies": {
     "@shelf/jest-mongodb": "^2.0.1",
+    "eslint": "^7.32.0",
     "git-commit-msg-linter": "^3.2.6",
     "jest": "^27.0.6",
     "prettier": "^2.3.2"
