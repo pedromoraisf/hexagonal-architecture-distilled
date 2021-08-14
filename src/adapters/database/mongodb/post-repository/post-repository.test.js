@@ -31,6 +31,8 @@ describe("Post Repository MongoDB Adapter", () => {
       const testable = await sut.create(makeFixtureToInsert());
 
       expect(testable).toBeTruthy();
+      expect(testable?.title).toEqual(makeFixtureToInsert().title);
+      expect(testable?.content).toEqual(makeFixtureToInsert().content);
     });
   });
 
@@ -66,7 +68,7 @@ describe("Post Repository MongoDB Adapter", () => {
       const makedFixtureToInsert = makeFixtureToInsert();
       const { insertedId = "" } = await driver.createPostAndReturnId(makedFixtureToInsert);
 
-      const testable = await sut.listOne(insertedId);
+      const testable = await sut.listOne({ id: insertedId });
 
       expect(testable).toEqual({
         ...makedFixtureToInsert,

@@ -11,11 +11,12 @@ const PostRepositoryMongoDbAdapter = () => ({
   async create(payload = PostToCreateDTO) {
     return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
-      const { acknowledged = false } = await collection.insertOne({
+      const postToInsert = {
         ...payload,
         _id: nanoid()
-      });
-      return acknowledged;
+      };
+      const { acknowledged = false } = await collection.insertOne(postToInsert);
+      return acknowledged ? postToInsert : false;
     });
   },
   async listAll() {
