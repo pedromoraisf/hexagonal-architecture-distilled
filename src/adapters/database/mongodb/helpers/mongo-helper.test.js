@@ -2,7 +2,7 @@ const { mongoHelper: sut } = require(".");
 
 describe("Mongo Helper", () => {
   beforeAll(async () => {
-    await sut.connect(process.env.MONGO_URL ?? "");
+    await sut.connect(process.env.MONGO_URL || "");
   });
 
   afterAll(async () => {

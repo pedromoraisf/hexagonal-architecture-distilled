@@ -13,7 +13,7 @@ describe("Post Repository MongoDB Adapter", () => {
   let driver = null;
 
   beforeAll(async () => {
-    await mongoHelper.connect(process.env.MONGO_URL ?? "");
+    await mongoHelper.connect(process.env.MONGO_URL || "");
     const collection = await sut.getCollection();
     driver = sutDriver(collection);
   });
