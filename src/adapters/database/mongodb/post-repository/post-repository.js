@@ -42,7 +42,7 @@ const PostRepositoryMongoDbAdapter = () => ({
     return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
       const findedPost = await collection.findOne({
-        id: payload.id
+        _id: payload.id
       });
       return findedPost || false;
     });
