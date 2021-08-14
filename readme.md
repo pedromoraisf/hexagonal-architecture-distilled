@@ -34,23 +34,23 @@ It is not directly attached to any kind of UML diagram.
 
 ## How to Run
 
-### Local:
+#### Local:
 - Install Node.js >= 14
 - Open this repo and install dependencies
 - Run: `npm run start`
 
-### Docker 🐳:
+#### Docker 🐳:
 - Having the node installed, open this repo and run: `npm run docker:up`
 - If you want to disassemble the composition, run: `npm run docker:down`
 
 ## How to Test
 
-### Unit and Integration:
+#### Unit and Integration:
 - Unitary tests, run: `npm run test:unit`
 - Integration tests, run: `npm run test:integration`
 - Both tests, run: `npm run test`
 
-### e2e:
+#### e2e:
 - Having the environment mounted (both local or docker), run: `npm run test:create-a-post` and copy the "_id" returned property
 - Input above returned property in TESTABLE_POST_ID variable on e2e/docker/get-a-specific-post.test.js and run: `npm run test:get-a-specific-post`
 - Input above returned property in TESTABLE_POST_ID variable on e2e/docker/edit-a-specific-post.test.js and run: `npm run test:edit-a-specific-post`
