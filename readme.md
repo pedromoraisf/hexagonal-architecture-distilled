@@ -24,6 +24,12 @@ The design was as simple as possible in order not to obscure the practical examp
 
 I suggest that the consumer of this content does not get attached to peripheral concepts (Decorator design pattern, etc). Focus on Ports and Adapters.
 
+## Glossary
+
+- <a href="https://github.com/pedromoraisf/hexagonal-architecture-distilled/tree/main/src/ports">Ports - @/ports/readme.md</a>
+- <a href="#">Adapters - @/adapters/readme.md</a>
+- <a href="#">Business - @/usecases/readme.md</a>
+
 ## Arquitetural Map
 
 This is an overview of the design and Hexagonal Architecture's look at it. 
@@ -63,5 +69,8 @@ It is not directly attached to any kind of UML diagram.
 - [x] Create Docker environment.
 - [x] Create e2e Tests to View Results.
 - [ ] Make a Markdown for each conceptual folder (usecases, ports, adapters) explaining every detail.
+  - [x] Ports
+  - [ ] Adapters
+  - [ ] Business
 - [ ] Create the post itself, on my blog 😅.
 
