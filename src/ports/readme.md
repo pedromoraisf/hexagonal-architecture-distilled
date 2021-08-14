@@ -24,6 +24,10 @@ The idea around Port comes from the same vision of the operating system or elect
 
 Thinking about the architecture of the system as a whole, Ports would be directly included inside (business rules, use cases, etc.), providing a clear definition of the data that comes in, what data is returned and the functions that can be used.
 
+<p align="center">
+<img src="./../../docs/ports-cut.png" height="300">
+</p>
+
 They are usually described by Abstract Interfaces - both the feature of object-oriented languages or dependencies injected by parameters or higher order functions as was done in the examples in this repository.
 
 ### What is the ideal number of ports?
