@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const editAParticularPostUseCase = require("./edit-a-particular-post");
 const { handleErrorDecorator } = require("./../decorators");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");

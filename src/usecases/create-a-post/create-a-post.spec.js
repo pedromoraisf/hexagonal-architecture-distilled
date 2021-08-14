@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const createAPostUseCase = require("./create-a-post");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");

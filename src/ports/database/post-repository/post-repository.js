@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { PostToCreateDTO, PostToEditDTO, PostToGetDTO } = require("./dto");
 
 const PostRepositoryPort = {

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const { PostRepositoryMongoDbAdapter } = require(".");
 const { mongoHelper } = require("./../helpers");
 const sutDriver = require("./driver");

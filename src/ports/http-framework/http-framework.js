@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const HttpFrameworkPort = {
   serverError: (message = "") => {
     throw new Error("NOT_IMPLEMENTED");
