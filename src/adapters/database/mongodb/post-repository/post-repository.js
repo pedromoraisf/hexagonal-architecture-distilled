@@ -36,7 +36,7 @@ const PostRepositoryMongoDbAdapter = () => ({
           $set: payload.data
         }
       );
-      return !!updatedValue.ok;
+      return !!updatedValue.value;
     });
   },
   async listOne(payload = PostToGetDTO) {

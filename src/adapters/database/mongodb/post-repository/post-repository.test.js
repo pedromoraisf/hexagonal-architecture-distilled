@@ -61,6 +61,17 @@ describe("Post Repository MongoDB Adapter", () => {
 
       expect(testable).toBeTruthy();
     });
+
+    test("should not update a post", async () => {
+      const testable = await sut.update({
+        id: "any_wrong_id",
+        data: {
+          title: "any_updated_title"
+        }
+      });
+
+      expect(testable).toBeFalsy();
+    });
   });
 
   describe("List One", () => {
