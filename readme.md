@@ -32,6 +32,17 @@ It is not directly attached to any kind of UML diagram.
 
 <img src="./requirements/arquitetural-approach.png">
 
+## How to Run
+
+### Local:
+- Install Node.js >= 14
+- Open this repo and install dependencies
+- Run `npm run start`
+
+### Docker 🐳:
+- Having the node installed, open this repo and run `npm run docker:up`
+- If you want to disassemble the composition, run `npm run docker:down`
+
 ## // TODO
 
 - [x] Implement the MongoDB adapter.
