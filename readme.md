@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://mymenon.com.br">
+  <a href="https://pedromoraisf.medium.com">
     <img src="https://ouch-cdn2.icons8.com/M_NCQ9o8yHajuGD4x7kQ9WgUGSze1FKoaK3lcRMEE8E/rs:fit:840:616/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMTgx/L2ZiOWExYjViLTFi/NjEtNDMzMC05NTMw/LWZhZjlkNjM1YjFm/NS5wbmc.png" height="150">
     <h2 align="center">Hexagonal Architecture Distilled in JavaScript</h2>
   </a>
