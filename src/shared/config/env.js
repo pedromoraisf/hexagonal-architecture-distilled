@@ -1,13 +1,10 @@
 require("dotenv").config({
-  path: {
-    dev: ".env",
-    docker: ".env.docker"
-  }[process.env.NODE_ENV]
+  path: ".env.docker"
 });
 
 const env = {
   MONGO_URL: process.env.MONGO_URL,
-  HOST: process.env.HOST,
+  HOST: process.env.HOST_URL,
   PORT: process.env.PORT
 };
 

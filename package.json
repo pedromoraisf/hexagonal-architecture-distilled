@@ -10,14 +10,18 @@
     "test:unit": "npm test -- --watch -c jest-unit.config.js",
     "test:integration": "npm test -- --watch -c jest-integration.config.js",
     "docker:up": "docker-compose up --build --detach",
-    "docker:down": "docker-compose down -v"
+    "docker:down": "docker-compose down -v",
+    "test:list-all-posts": "node e2e/docker/list-all-posts.test.js",
+    "test:create-a-post": "node e2e/docker/create-a-post.test.js",
+    "test:get-a-specific-post": "node e2e/docker/get-a-specific-post.test.js",
+    "test:edit-a-specific-post": "node e2e/docker/edit-a-specific-post.test.js"
   },
   "keywords": [
-    "javascript", 
-    "blog", 
-    "hexagonal-architecture", 
-    "ports-and-adapters", 
-    "software-architecture-and-design", 
+    "javascript",
+    "blog",
+    "hexagonal-architecture",
+    "ports-and-adapters",
+    "software-architecture-and-design",
     "alistair-cockburn"
   ],
   "author": "",
@@ -34,6 +38,6 @@
     "module-alias": "^2.2.2",
     "mongodb": "^4.1.0",
     "nanoid": "^3.1.23",
-    "request": "^2.88.2"
+    "node-fetch": "^2.6.1"
   }
 }

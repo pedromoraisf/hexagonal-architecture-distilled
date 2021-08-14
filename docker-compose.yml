@@ -19,5 +19,3 @@ services:
       - '3000:3000'
     volumes:
       - ./:/usr/app
-    environment:
-      - NODE_ENV=docker
