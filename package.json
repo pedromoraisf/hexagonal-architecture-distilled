@@ -1,7 +1,7 @@
 {
-  "name": "project",
+  "name": "hexagonal-architecture-distilled",
   "version": "1.0.0",
-  "description": "",
+  "description": "The ultimate guide to understand Hexagonal Architecture (a.k.a Ports and Adapters) in JavaScript.",
   "main": "src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
@@ -12,7 +12,14 @@
     "docker:up": "docker-compose up --build --detach",
     "docker:down": "docker-compose down -v"
   },
-  "keywords": [],
+  "keywords": [
+    "javascript", 
+    "blog", 
+    "hexagonal-architecture", 
+    "ports-and-adapters", 
+    "software-architecture-and-design", 
+    "alistair-cockburn"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
