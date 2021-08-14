@@ -26,7 +26,7 @@ I suggest that the consumer of this content does not get attached to peripheral 
 
 ## Glossary
 
-- <a href="https://github.com/pedromoraisf/hexagonal-architecture-distilled/tree/main/src/ports">Ports - @/ports/readme.md</a>
+- <a href="./src/ports/readme.md">Ports - @/ports/readme.md</a>
 - <a href="#">Adapters - @/adapters/readme.md</a>
 - <a href="#">Business - @/usecases/readme.md</a>
 
@@ -36,7 +36,7 @@ This is an overview of the design and Hexagonal Architecture's look at it.
 
 It is not directly attached to any kind of UML diagram.
 
-<img src="./requirements/arquitetural-approach.png">
+<img src="./docs/architectural-approach.png">
 
 ## How to Run
 
