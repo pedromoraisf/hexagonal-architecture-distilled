@@ -4,10 +4,13 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "start": "node ./src/index.js",
     "fmt": "prettier --write ./src",
     "test": "jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit.config.js",
-    "test:integration": "npm test -- --watch -c jest-integration.config.js"
+    "test:integration": "npm test -- --watch -c jest-integration.config.js",
+    "docker:up": "docker-compose up --build --detach",
+    "docker:down": "docker-compose down -v"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +22,11 @@
     "prettier": "^2.3.2"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2",
     "mongodb": "^4.1.0",
-    "nanoid": "^3.1.23"
+    "nanoid": "^3.1.23",
+    "request": "^2.88.2"
   }
 }
