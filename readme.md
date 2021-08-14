@@ -46,9 +46,9 @@ It is not directly attached to any kind of UML diagram.
 ## How to Test
 
 ### Unit and Integration:
-- To view unitary tests, run: `npm run test:unit`
-- To view integration tests, run: `npm run test:integration`
-- To see both tests, run: `npm run test`
+- Unitary tests, run: `npm run test:unit`
+- Integration tests, run: `npm run test:integration`
+- Both tests, run: `npm run test`
 
 ### e2e:
 - Having the environment mounted (both local or docker), run: `npm run test:create-a-post` and copy the "_id" returned property
