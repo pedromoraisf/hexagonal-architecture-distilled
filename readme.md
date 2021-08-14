@@ -35,7 +35,8 @@ It is not directly attached to any kind of UML diagram.
 ## // TODO
 
 - [x] Implement the MongoDB adapter.
-- [ ] Implement the Express adapter.
+- [x] Implement the Express adapter.
+- [x] Create Docker environment.
 - [ ] Create Integration Tests to View Results.
 - [ ] Make a Markdown for each conceptual folder (usecases, ports, adapters) explaining every detail.
 - [ ] Create the post itself, on my blog 😅.
