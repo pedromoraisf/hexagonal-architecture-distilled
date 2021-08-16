@@ -30,7 +30,7 @@ I suggest that the consumer of this content does not get attached to peripheral 
 - <a href="#">Adapters - @/adapters/readme.md</a>
 - <a href="#">Business - @/usecases/readme.md</a>
 
-## Arquitetural Map
+## Architectural Map
 
 This is an overview of the design and Hexagonal Architecture's look at it. 
 
