@@ -10,7 +10,7 @@
 </p>
 <br />
 
-## Visão Conceitual
+## Visão conceitual
 
 O padrão de projeto Adapter foi publicado inicialmente no livro Design Patterns: Elements of Reusable Object-Oriented Software.
 
@@ -32,7 +32,7 @@ Tendo em mente que o Adapter nesse contexto é apresentado como um ponto de coes
 
 Em vez do código cliente apontar sua dependência direta pro ORM, Query Builder ou qualquer Driver de banco de dados, ele apontaria para uma função ou classe Adapter (que está sob o nosso controle) e essa apontaria para a tecnologia externa.
 
-## Olhar Arquitetural
+## Olhar arquitetural
 
 Considerando a explicação de [Portas](./../ports/readme-pt-BR.md), os Adapters seriam a implementação do protocolo definido na Porta.
 

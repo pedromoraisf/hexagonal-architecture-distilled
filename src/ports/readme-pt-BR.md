@@ -10,7 +10,7 @@
 </p>
 <br />
 
-## Visão Conceitual
+## Visão conceitual
 
 Seguindo uma das motivações de Alistair Cockburn, a indústria cultivou escritas por códigos de casos de uso que teriam um vasto conhecimento sobre suas tecnologias ou atores. 
 
@@ -20,7 +20,7 @@ Considerando a afirmação acima, as Portas entram como uma demarcação de qual
 
 A ideia em torno de Porta vem da mesma visão da porta do sistema operacional ou de aparelhos eletrônicos. Protocolos que abrem margem para conexão de dispositivos que respeitem seu protocolo (a.k.a Adaptador).
 
-## Olhar Arquitetural
+## Olhar arquitetural
 
 Pensando na arquitetura do sistema como um todo, Portas estariam diretamente inclusas na parte de dentro (regras de negócio, casos de uso, etc.), fornecendo uma definição clara dos dados que entram, os que retornam e as funções que podem ser usadas.
 
@@ -42,7 +42,7 @@ Nesse caso, cada repositório tem uma Porta em específico.
 
 Em um projeto que não tenha um padrão como este, uma Porta para o banco de dados como um todo pode ser suficiente.
 
-## Observando na Prática
+## Observando na prática
 
 Olhando para as pastas "database" e "http-framework" observa-se a existência de duas Portas.
 

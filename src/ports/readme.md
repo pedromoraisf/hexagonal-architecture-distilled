@@ -10,7 +10,7 @@
 </p>
 <br />
 
-## Conceptual Vision
+## Conceptual vision
 
 Following one of Alistair Cockburn's motivations, the industry has cultivated use case code writings that would have vast knowledge about their technologies or actors.
 
@@ -20,7 +20,7 @@ Considering the above statement, the Ports enter as a demarcation of which place
 
 The idea around Port comes from the same vision of the operating system or electronics port. Protocols that make room for the connection of devices that respect their protocol (a.k.a Adapter).
 
-## Architectural Look
+## Architectural look
 
 Thinking about the architecture of the system as a whole, Ports would be directly included inside (business rules, use cases, etc.), providing a clear definition of the data that comes in, what data is returned and the functions that can be used.
 
@@ -42,7 +42,7 @@ In this case, each repository has a specific Port.
 
 In a project that doesn't have a standard like this, one Port to the database as a whole may be sufficient.
 
-## Observing in Practice 
+## Observing in practice 
 
 Looking at the "database" and "http-framework" folders, there are two Ports.
 
