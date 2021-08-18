@@ -1,7 +1,7 @@
 <p align="center">
   <a href="https://pedromoraisf.medium.com">
     <img src="https://ouch-cdn2.icons8.com/Mh7LQsapa3U6bOVyJUiLqt_flRpvlJFTxFRFTtBPKC8/rs:fit:549:403/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNDc4/Lzg4NGM0ZDQ2LWY5/OGItNDc1NS04ZGY0/LWQwOGQ1MDZmNWE4/Yi5wbmc.png" height="150">
-    <h2 align="center">Adapters (Adaptadores)</h2>
+    <h2 align="center">Adapters</h2>
   </a>
 </p>
 
