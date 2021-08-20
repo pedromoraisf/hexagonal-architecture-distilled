@@ -11,7 +11,7 @@
 
 Seguindo a ideia de Ivar Jacobsom e posteriormente de Alistair Cockburn, Casos de Uso estariam sob o guarda-chuva da Engenharia de Requisitos e seriam classificadores que definem interações entre um sistema e mais atores.
 
-Casos de uso podem ser descritos como funcionalidades que um sistema deve respeitar. O molde de sua identidade.
+Casos de Uso podem ser descritos como funcionalidades que um sistema deve respeitar. O molde de sua identidade.
 
 Pensando em um sistema de cardápio digital para restaurante, algumas de suas funcionalidades seriam: Pedir um prato, Pagar o pedido, Cadastrar um prato e Adicionar um cupom promocional.
 
@@ -47,7 +47,7 @@ Essa é uma das grandes promessas da Orientação a Objetos por meio do conceito
 
 ## Visualizando na prática
 
-Caso a teoria exercitada nesse arquivo esteja muito abstrata, apelo para concretização no arquivo "@/usecases/edit-a-particular-post.spec.js".
+Caso a teoria exercitada neste arquivo esteja muito abstrata, apelo para concretização no arquivo "@/usecases/edit-a-particular-post.spec.js".
 
 Nesse arquivo, tem-se o teste unitário como especificação da funcionalidade do Caso de Uso de Editar um Post.
 
@@ -66,5 +66,5 @@ Dessa forma, desenvolvo a ideia de composição para meus Casos de Uso, tendo um
 - Object Oriented Software Engineering: A Use Case Driven Approach - Ivar Jacobsom
 - Writing Effective Use Cases - Alistair Cockburn
 - Hexagonal Architecture - <a href="https://alistair.cockburn.us/hexagonal-architecture/">https://alistair.cockburn.us/hexagonal-architecture/</a>
-- Design Patterns: Elements of Reusable Object-Oriented Software - Erich Gamma, Richard Helm, Ralph Johnson Dr, and John Vlissides.
+- Design Patterns: Elements of Reusable Object-Oriented Software - Erich Gamma, Richard Helm, Ralph Johnson Dr, e John Vlissides.
 - SUT, xUnit Patterns - <a href="http://xunitpatterns.com/SUT.html">http://xunitpatterns.com/SUT.html</a>
