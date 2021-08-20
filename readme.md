@@ -28,7 +28,7 @@ I suggest that the consumer of this content does not get attached to peripheral 
 
 - <a href="./src/ports/readme.md">Ports - @/ports/readme.md</a>
 - <a href="./src/adapters/readme.md">Adapters - @/adapters/readme.md</a>
-- <a href="#">Business - @/usecases/readme.md</a>
+- <a href="./src/usecases/readme.md">Use Cases - @/usecases/readme.md</a>
 
 ## Architectural Map
 
@@ -68,9 +68,9 @@ It is not directly attached to any kind of UML diagram.
 - [x] Implement the Express adapter.
 - [x] Create Docker environment.
 - [x] Create e2e Tests to View Results.
-- [ ] Make a Markdown for each conceptual folder (usecases, ports, adapters) explaining every detail.
+- [x] Make a Markdown for each conceptual folder (usecases, ports, adapters) explaining every detail.
   - [x] Ports
   - [x] Adapters
-  - [ ] Business
+  - [x] Use Cases / Business
 - [ ] Create the post itself, on my blog 😅.
 
