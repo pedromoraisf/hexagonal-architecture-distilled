@@ -9,7 +9,7 @@
 
 ## Visão conceitual
 
-Seguindo a ideia de Ivar Jacobsom e posteriormente de Alistair Cockburn, Casos de Uso estariam sob o guarda-chuva da Engenharia de Requisitos e seriam classificadores que definem interações entre um sistema e mais atores.
+Seguindo a ideia de Ivar Jacobson e posteriormente de Alistair Cockburn, Casos de Uso estariam sob o guarda-chuva da Engenharia de Requisitos e seriam classificadores que definem interações entre um sistema e mais atores.
 
 Casos de Uso podem ser descritos como funcionalidades que um sistema deve respeitar. O molde de sua identidade.
 
@@ -63,7 +63,7 @@ Dessa forma, desenvolvo a ideia de composição para meus Casos de Uso, tendo um
 
 ## Referências
 
-- Object Oriented Software Engineering: A Use Case Driven Approach - Ivar Jacobsom
+- Object Oriented Software Engineering: A Use Case Driven Approach - Ivar Jacobson
 - Writing Effective Use Cases - Alistair Cockburn
 - Hexagonal Architecture - <a href="https://alistair.cockburn.us/hexagonal-architecture/">https://alistair.cockburn.us/hexagonal-architecture/</a>
 - Design Patterns: Elements of Reusable Object-Oriented Software - Erich Gamma, Richard Helm, Ralph Johnson Dr, e John Vlissides.
