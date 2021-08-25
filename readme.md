@@ -72,5 +72,5 @@ It is not directly attached to any kind of UML diagram.
   - [x] Ports
   - [x] Adapters
   - [x] Use Cases / Business
-- [ ] Create the post itself, on my blog 😅.
+- [x] Create the post itself, on my blog 😅.
 
