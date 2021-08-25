@@ -9,7 +9,7 @@
 
 ## Conceptual vision
 
-Following the idea of Ivar Jacobsom and later of Alistair Cockburn, Use Cases would be under the umbrella of Requirements Engineering and would be classifiers that define interactions between a system and more actors.
+Following the idea of Ivar Jacobson and later of Alistair Cockburn, Use Cases would be under the umbrella of Requirements Engineering and would be classifiers that define interactions between a system and more actors.
 
 Use Cases can be described as functionalities that a system must respect. The mold of your identity.
 
@@ -63,7 +63,7 @@ In this way, I develop the composition idea for my Use Cases, having a decoupled
 
 ## References
 
-- Object Oriented Software Engineering: A Use Case Driven Approach - Ivar Jacobsom
+- Object Oriented Software Engineering: A Use Case Driven Approach - Ivar Jacobson
 - Writing Effective Use Cases - Alistair Cockburn
 - Hexagonal Architecture - <a href="https://alistair.cockburn.us/hexagonal-architecture/">https://alistair.cockburn.us/hexagonal-architecture/</a>
 - Design Patterns: Elements of Reusable Object-Oriented Software - Erich Gamma, Richard Helm, Ralph Johnson Dr, and John Vlissides.
