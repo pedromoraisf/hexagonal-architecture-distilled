@@ -6,7 +6,7 @@ const { handleErrorDecorator } = require("@/usecases/decorators");
 const makeGetSpecificPost = async (req, res) => {
   const { payload, ...httpResponses } = routeAdapter(req, res);
   return await handleErrorDecorator(
-    () => getSpecificPostUseCase({ payload }, PostRepositoryMongoDbAdapter(), httpResponses),
+    () => getSpecificPostUseCase(PostRepositoryMongoDbAdapter(), httpResponses)({ payload }),
     httpResponses
   );
 };
