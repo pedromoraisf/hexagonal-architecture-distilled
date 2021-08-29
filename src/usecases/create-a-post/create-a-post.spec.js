@@ -14,9 +14,10 @@ const makeSut = () => {
   const makedPostRepositoryInMemoryAdapter = PostRepositoryInMemoryAdapter();
   const makedHttpFramworkMockAdapter = HttpFrameworkMockAdapter();
   const sut = (payload) => {
-    const makedUseCase = () =>
-      createAPostUseCase({ payload }, makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter);
-    return handleErrorDecorator(makedUseCase, makedHttpFramworkMockAdapter);
+    return handleErrorDecorator(
+      () => createAPostUseCase(makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter)({ payload }),
+      makedHttpFramworkMockAdapter
+    );
   };
 
   return {
