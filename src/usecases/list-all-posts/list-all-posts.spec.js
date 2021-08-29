@@ -11,8 +11,10 @@ const makeSut = () => {
   const makedPostRepositoryInMemoryAdapter = PostRepositoryInMemoryAdapter();
   const makedHttpFramworkMockAdapter = HttpFrameworkMockAdapter();
   const sut = () => {
-    const makedUseCase = () => listAllPostsUseCase(makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter);
-    return handleErrorDecorator(makedUseCase, makedHttpFramworkMockAdapter);
+    return handleErrorDecorator(
+      () => listAllPostsUseCase(makedPostRepositoryInMemoryAdapter, makedHttpFramworkMockAdapter)(),
+      makedHttpFramworkMockAdapter
+    );
   };
 
   return {

@@ -7,7 +7,7 @@ const makeListAllPosts = async (req, res) => {
   // eslint-disable-next-line no-unused-vars
   const { _, ...httpResponses } = routeAdapter(req, res);
   return await handleErrorDecorator(
-    () => listAllPostsUseCase(PostRepositoryMongoDbAdapter(), routeAdapter(req, res)),
+    () => listAllPostsUseCase(PostRepositoryMongoDbAdapter(), routeAdapter(req, res))(),
     httpResponses
   );
 };
