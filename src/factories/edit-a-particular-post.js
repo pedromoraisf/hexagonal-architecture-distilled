@@ -6,7 +6,7 @@ const { handleErrorDecorator } = require("@/usecases/decorators");
 const makeEditAParticularPost = async (req, res) => {
   const { payload, ...httpResponses } = routeAdapter(req, res);
   return await handleErrorDecorator(
-    () => editAParticularPostUseCase({ payload }, PostRepositoryMongoDbAdapter(), httpResponses),
+    () => editAParticularPostUseCase(PostRepositoryMongoDbAdapter(), httpResponses)({ payload }),
     httpResponses
   );
 };
