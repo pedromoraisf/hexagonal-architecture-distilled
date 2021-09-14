@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "8b4474ee-72e9-4749-b035-4bffde85d151",
+		"name": "hexagonal-architecture-distilled",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create a Post",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = JSON.parse(responseBody);",
+							"",
+							"if (response.statusCode === 200)",
+							"    postman.setEnvironmentVariable(\"v-created-post-id\", response.body._id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"any_post_title\",\n    \"content\": \"any_post_content\"\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/create-a-post",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"create-a-post"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
