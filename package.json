@@ -16,7 +16,7 @@
     "test:get-a-specific-post": "node e2e/docker/get-a-specific-post.test.js",
     "test:edit-a-particular-post": "node e2e/docker/edit-a-particular-post.test.js",
     "test:list-all-posts": "node e2e/docker/list-all-posts.test.js", 
-    "test:postman": "newman run ./e2e/postman/hexagonal-architecture-distilled.postman_collection.json -e ./e2e/postman/hexagonal-architecture-distilled-dev.postman_environment.json"
+    "test:postman:headless": "newman run ./e2e/postman/hexagonal-architecture-distilled.postman_collection.json -e ./e2e/postman/hexagonal-architecture-distilled-dev.postman_environment.json"
   },
   "keywords": [
     "javascript",

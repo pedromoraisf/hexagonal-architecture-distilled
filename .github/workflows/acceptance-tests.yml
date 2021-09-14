@@ -1,0 +1,31 @@
+name: Acceptance Tests
+
+on:
+  push:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    container: node:14-alpine
+
+    services:
+      mongo:
+        image: mongo
+        env:
+          MONGO_INITDB_DATABASE: hexagonal-blog
+        ports:
+          - 27017/tcp
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Server and Test with Newman
+        run: npm run start & npm run test:postman:headless
+        env:
+          MONGO_URL: mongodb://mongo:${{ job.services.mongodb.ports[27017] }}/hexagonal-blog
+          HOST_URL: http://localhost
+          PORT: 3000
