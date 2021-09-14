@@ -73,6 +73,33 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Edit a Specific Post",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"data\":{\n        \"title\": \"any_post_edited_title\", \n        \"content\": \"any_post_edited_content\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base-url}}/edit-a-particular-post/{{v-created-post-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"edit-a-particular-post",
+						"{{v-created-post-id}}"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
