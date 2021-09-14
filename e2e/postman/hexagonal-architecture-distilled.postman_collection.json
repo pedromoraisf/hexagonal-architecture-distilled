@@ -55,6 +55,24 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get a Specific Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/get-specific-post/{{v-created-post-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"get-specific-post",
+						"{{v-created-post-id}}"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
