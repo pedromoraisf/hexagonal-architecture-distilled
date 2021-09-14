@@ -14,7 +14,7 @@
     "docker:down": "docker-compose down -v",
     "test:create-a-post": "node e2e/docker/create-a-post.test.js",
     "test:get-a-specific-post": "node e2e/docker/get-a-specific-post.test.js",
-    "test:edit-a-specific-post": "node e2e/docker/edit-a-specific-post.test.js",
+    "test:edit-a-particular-post": "node e2e/docker/edit-a-particular-post.test.js",
     "test:list-all-posts": "node e2e/docker/list-all-posts.test.js"
   },
   "keywords": [
