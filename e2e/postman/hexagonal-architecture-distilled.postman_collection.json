@@ -67,6 +67,27 @@
 		},
 		{
 			"name": "Get a Specific Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"should receive statusCode 200\", function () {",
+							"    pm.expect(response.statusCode).to.equal(200)",
+							"})",
+							"",
+							"pm.test(\"should receive wanted post data in response\", function () {",
+							"    pm.expect(response.body._id).to.equal(pm.environment.get('v-created-post-id'))",
+							"    pm.expect(response.body.title).to.equal(\"any_post_title\")",
+							"    pm.expect(response.body.content).to.equal(\"any_post_content\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
