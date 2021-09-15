@@ -21,7 +21,16 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"const response = JSON.parse(responseBody);",
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"should receive statusCode 200\", function () {",
+							"    pm.expect(response.statusCode).to.equal(200)",
+							"})",
+							"",
+							"pm.test(\"should receive created post data in response\", function () {",
+							"    pm.expect(response.body.title).to.equal(\"any_post_title\")",
+							"    pm.expect(response.body.content).to.equal(\"any_post_content\")",
+							"})",
 							"",
 							"if (response.statusCode === 200)",
 							"    postman.setEnvironmentVariable(\"v-created-post-id\", response.body._id);",
