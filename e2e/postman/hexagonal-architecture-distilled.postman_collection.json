@@ -152,6 +152,21 @@
 		},
 		{
 			"name": "List All Posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"should receive statusCode 200\", function () {",
+							"    pm.expect(response.statusCode).to.equal(200)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
