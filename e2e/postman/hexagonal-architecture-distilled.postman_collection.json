@@ -106,6 +106,25 @@
 		},
 		{
 			"name": "Edit a Specific Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"should receive statusCode 200\", function () {",
+							"    pm.expect(response.statusCode).to.equal(200)",
+							"})",
+							"",
+							"pm.test(\"should receive a success message in body\", function () {",
+							"    pm.expect(response.body).to.equal(\"Post has been updated\")",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
