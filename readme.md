@@ -13,11 +13,7 @@
 </p>
 <br />
 
-## Project Presentation
-
-This is a simple blog project, with the most basic use cases we can have.
-
-## Motivation and Disclaimers
+## Presentation
 
 This is a sample repository for my "Hexagonal Architecture Distilled in JavaScript" publication.
 
@@ -25,7 +21,7 @@ The code writing style was motivated by the familiarity of JavaScript programmer
 
 The design was as simple as possible in order not to obscure the practical examples of Hexagonal Architecture concepts.
 
-I suggest that the consumer of this content does not get attached to peripheral concepts (Decorator design pattern, etc). Focus on Ports and Adapters.
+I suggest that the consumer of this content does not get attached to peripheral concepts (Decorator design pattern, etc). Focus on Ports and Adapters!
 
 ## Glossary
 
@@ -33,13 +29,11 @@ I suggest that the consumer of this content does not get attached to peripheral 
 - <a href="./src/adapters/readme.md">Adapters - @/adapters/readme.md</a>
 - <a href="./src/usecases/readme.md">Use Cases - @/usecases/readme.md</a>
 
-## Architectural Map
+## Architectural Map of the Ports and Adapters
 
-This is an overview of the design and Hexagonal Architecture's look at it. 
+The diagram below is designed to be familiar with the C4 pattern component diagram.
 
-It is not directly attached to any kind of UML diagram.
-
-<img src="./docs/architectural-approach.png">
+<img src="./docs/architectural-component-vision.png">
 
 ## How to Run
 
