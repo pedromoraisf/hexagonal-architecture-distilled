@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  The ultimate guide to understand Hexagonal Architecture (a.k.a Ports and Adapters) in JavaScript.
+  The guide to understand Hexagonal Architecture (a.k.a Ports and Adapters) in JavaScript.
 </p>
 <p align="center">
   <a target="_blank" href="https://javascript.plainenglish.io/hexagonal-architecture-distilled-in-javascript-ultimate-guide-aac2eaa6726c">Click here to see my publication on my blog →</a>
