@@ -29,7 +29,7 @@ I suggest that the consumer of this content does not get attached to peripheral 
 - <a href="./src/adapters/readme.md">Adapters - @/adapters/readme.md</a>
 - <a href="./src/usecases/readme.md">Use Cases - @/usecases/readme.md</a>
 
-## Architectural Map of the Ports and Adapters
+## Component Vision of the Ports and Adapters
 
 The diagram below is designed to be familiar with the C4 pattern component diagram.
 
