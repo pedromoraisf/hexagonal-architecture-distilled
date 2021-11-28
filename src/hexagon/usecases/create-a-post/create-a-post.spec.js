@@ -3,7 +3,7 @@ const createAPostUseCase = require("./create-a-post");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
 const { makeErrorPattern, Errors } = require("@/shared/error");
-const { handleErrorDecorator } = require("@/usecases/decorators");
+const { handleErrorDecorator } = require("@/hexagon/usecases/decorators");
 
 const makeFixture = () => ({
   title: "any_title",

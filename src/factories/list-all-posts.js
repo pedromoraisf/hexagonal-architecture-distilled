@@ -1,7 +1,7 @@
 const { PostRepositoryMongoDbAdapter } = require("@/adapters/database/mongodb/post-repository");
 const { routeAdapter } = require("@/adapters/http/express");
-const { listAllPostsUseCase } = require("@/usecases");
-const { handleErrorDecorator } = require("@/usecases/decorators");
+const { listAllPostsUseCase } = require("@/hexagon/usecases");
+const { handleErrorDecorator } = require("@/hexagon/usecases/decorators");
 
 const makeListAllPosts = async (req, res) => {
   // eslint-disable-next-line no-unused-vars

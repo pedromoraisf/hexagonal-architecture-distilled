@@ -27,7 +27,7 @@ I suggest that the consumer of this content does not get attached to peripheral 
 
 - <a href="./src/ports/readme.md">Ports - @/ports/readme.md</a>
 - <a href="./src/adapters/readme.md">Adapters - @/adapters/readme.md</a>
-- <a href="./src/usecases/readme.md">Use Cases - @/usecases/readme.md</a>
+- <a href="./src/hexagon/usecases/readme.md">Use Cases - @/hexagon/usecases/readme.md</a>
 
 ## Component Vision of the Ports and Adapters
 

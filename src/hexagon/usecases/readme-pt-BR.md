@@ -35,7 +35,7 @@ Dessa forma, abrimos margem para múltiplas implementações de uma mesma Porta 
 
 ## Observando na prática
 
-Observemos "@/usecases/edit-a-particular-post.js".
+Observemos "@/hexagon/usecases/edit-a-particular-post.js".
 
 Nesse arquivo, tem-se a menção de duas portas distintas. Na linha 12, 13 e 14, chamo funções que são recebidas por parâmetro (Portas por meio de Injeção de Dependência) para compor a visão de alto nível do Caso de Uso.
 
@@ -47,7 +47,7 @@ Essa é uma das grandes promessas da Orientação a Objetos por meio do conceito
 
 ## Visualizando na prática
 
-Caso a teoria exercitada neste arquivo esteja muito abstrata, apelo para concretização no arquivo "@/usecases/edit-a-particular-post.spec.js".
+Caso a teoria exercitada neste arquivo esteja muito abstrata, apelo para concretização no arquivo "@/hexagon/usecases/edit-a-particular-post.spec.js".
 
 Nesse arquivo, tem-se o teste unitário como especificação da funcionalidade do Caso de Uso de Editar um Post.
 

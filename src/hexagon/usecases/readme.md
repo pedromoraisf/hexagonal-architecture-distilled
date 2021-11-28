@@ -35,7 +35,7 @@ In this way, we make room for multiple implementations of the same Port without 
 
 ## Observing in practice
 
-Let's look at "@/usecases/edit-a-particular-post.js".
+Let's look at "@/hexagon/usecases/edit-a-particular-post.js".
 
 In this file, there is mention of two distinct Ports. In line 12, 13, and 14, I call functions that are received by parameter (Ports via Dependency Injection) to compose the top-level view of the Use Case.
 
@@ -47,7 +47,7 @@ This is one of the great promises of Object Orientation through the concept of P
 
 ## Viewing in practice
 
-If the theory exercised in this file is too abstract, I appeal for its implementation in the file "@/usecases/edit-a-particular-post.spec.js".
+If the theory exercised in this file is too abstract, I appeal for its implementation in the file "@/hexagon/usecases/edit-a-particular-post.spec.js".
 
 In this file, we have unit testing as a specification of the Edit a Post Use Case functionality.
 
