@@ -1,5 +1,5 @@
 const { PostRepositoryPort } = require("@/hexagon/ports/driven/database");
-const { HttpFrameworkPort } = require("@/ports/http-framework");
+const { HttpFrameworkPort } = require("@/hexagon/ports/driver/http-framework");
 
 const listAllPostsUseCase =
   (postRepository = PostRepositoryPort, { ok } = HttpFrameworkPort) =>

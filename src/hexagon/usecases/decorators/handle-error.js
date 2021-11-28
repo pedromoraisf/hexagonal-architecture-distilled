@@ -1,4 +1,4 @@
-const { HttpFrameworkPort } = require("@/ports/http-framework");
+const { HttpFrameworkPort } = require("@/hexagon/ports/driver/http-framework");
 const { Errors } = require("@/shared/error");
 
 const handleErrorDecorator = async (cb, { badRequest, serverError } = HttpFrameworkPort) => {
