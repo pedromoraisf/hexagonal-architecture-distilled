@@ -2,7 +2,7 @@
 const listAllPostsUseCase = require("./list-all-posts");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
-const { handleErrorDecorator } = require("../decorators");
+const { handleErrorDecorator } = require("@/usecases/decorators");
 const { makeErrorPattern, Errors } = require("@/shared/error");
 
 const makeFakePersistedFixture = (post = { _id: "any_id", title: "any_title", content: "any_content" }) => post;

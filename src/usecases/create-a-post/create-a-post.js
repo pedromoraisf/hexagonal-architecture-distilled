@@ -1,7 +1,7 @@
 const { PostRepositoryPort } = require("@/ports/database/post-repository");
 const { HttpFrameworkPort } = require("@/ports/http-framework");
-const { validateReceivedPublication } = require("../helpers");
-const { CreateAPostDTO } = require("./dto");
+const { validateReceivedPublication } = require("@/usecases/helpers");
+const { CreateAPostDTO } = require("@/usecases/create-a-post/dto");
 
 const createAPostUseCase =
   (postRepository = PostRepositoryPort, { ok } = HttpFrameworkPort) =>

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const editAParticularPostUseCase = require("./edit-a-particular-post");
-const { handleErrorDecorator } = require("./../decorators");
+const { handleErrorDecorator } = require("@/usecases/decorators");
 const { PostRepositoryInMemoryAdapter } = require("@/adapters/database/in-memory");
 const { HttpFrameworkMockAdapter } = require("@/adapters/http/mock");
 const { Errors, makeErrorPattern } = require("@/shared/error");
