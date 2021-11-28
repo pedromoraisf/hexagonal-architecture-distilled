@@ -1,6 +1,6 @@
 const { nanoid } = require("nanoid");
-const { PostToCreateDTO, PostToGetDTO, PostToEditDTO } = require("@/ports/database/post-repository/dto");
-const { mongoHelper } = require("../helpers");
+const { PostToCreateDTO, PostToGetDTO, PostToEditDTO } = require("@/hexagon/ports/driven/database/post-repository/dto");
+const { mongoHelper } = require("@/adapters/database/mongodb/helpers");
 const { makeErrorPattern, Errors } = require("@/shared/error");
 
 const PostRepositoryMongoDbAdapter = () => ({

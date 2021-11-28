@@ -1,4 +1,4 @@
-const { PostToCreateDTO, PostToEditDTO, PostToGetDTO } = require("@/ports/database/post-repository/dto");
+const { PostToCreateDTO, PostToEditDTO, PostToGetDTO } = require("@/hexagon/ports/driven/database/post-repository/dto");
 
 const PostRepositoryInMemoryAdapter = () => ({
   posts: [],
