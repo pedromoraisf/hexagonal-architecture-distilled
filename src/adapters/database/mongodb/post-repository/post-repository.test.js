@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const { PostRepositoryMongoDbAdapter } = require(".");
-const { mongoHelper } = require("./../helpers");
-const sutDriver = require("./driver");
+const { mongoHelper } = require("@/adapters/database/mongodb/helpers");
+const sutDriver = require("@/adapters/database/mongodb/post-repository/driver");
 
 const makeFixtureToInsert = () => ({
   title: "any_integration_test_title",
