@@ -1,8 +1,8 @@
 const { PostRepositoryPort } = require("@/hexagon/ports/driven/for-post-repository");
-const { HttpFrameworkPort } = require("@/hexagon/ports/driver/http-framework");
+const { WebPort } = require("@/hexagon/ports/driver");
 
 const listAllPostsUseCase =
-  (postRepository = PostRepositoryPort, { ok } = HttpFrameworkPort) =>
+  (postRepository = PostRepositoryPort, { ok } = WebPort) =>
   async () => {
     const persistedPosts = await postRepository.listAll();
     return ok(persistedPosts);

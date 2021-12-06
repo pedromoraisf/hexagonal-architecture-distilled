@@ -1,10 +1,10 @@
 const { PostRepositoryPort } = require("@/hexagon/ports/driven/for-post-repository");
-const { HttpFrameworkPort } = require("@/hexagon/ports/driver/http-framework");
+const { WebPort } = require("@/hexagon/ports/driver");
 const { validateReceivedPublication } = require("@/hexagon/usecases/helpers");
 const { GetSpecificPostDto } = require("@/hexagon/usecases/get-specific-post/dto");
 
 const getSpecificPostUseCase =
-  (postRepository = PostRepositoryPort, { badRequest, ok } = HttpFrameworkPort) =>
+  (postRepository = PostRepositoryPort, { badRequest, ok } = WebPort) =>
   async ({ payload = GetSpecificPostDto }) => {
     validateReceivedPublication(payload);
     const persistedPost = await postRepository.listOne(payload);

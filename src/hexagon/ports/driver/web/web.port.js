@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const HttpFrameworkPort = {
+const WebPort = {
   serverError: (message = "") => {
     throw new Error("NOT_IMPLEMENTED");
   },
@@ -11,4 +11,4 @@ const HttpFrameworkPort = {
   }
 };
 
-module.exports = HttpFrameworkPort;
+module.exports = WebPort;

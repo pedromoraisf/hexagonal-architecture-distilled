@@ -1,7 +1,7 @@
-const { HttpFrameworkPort } = require("@/hexagon/ports/driver/http-framework");
+const { WebPort } = require("@/hexagon/ports/driver");
 const { Errors } = require("@/shared/error");
 
-const handleErrorDecorator = async (cb, { badRequest, serverError } = HttpFrameworkPort) => {
+const handleErrorDecorator = async (cb, { badRequest, serverError } = WebPort) => {
   try {
     return await cb();
   } catch ({ message: error }) {
