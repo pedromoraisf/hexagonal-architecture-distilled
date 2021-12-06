@@ -1,4 +1,4 @@
-const { PostRepositoryPort } = require("@/hexagon/ports/driven/database/post-repository");
+const { PostRepositoryPort } = require("@/hexagon/ports/driven/for-post-repository");
 const { HttpFrameworkPort } = require("@/hexagon/ports/driver/http-framework");
 const { validateReceivedPublication } = require("@/hexagon/usecases/helpers");
 const { CreateAPostDTO } = require("@/hexagon/usecases/create-a-post/dto");
