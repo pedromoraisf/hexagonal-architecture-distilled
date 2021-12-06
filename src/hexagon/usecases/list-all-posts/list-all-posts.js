@@ -5,6 +5,7 @@ const listAllPostsUseCase =
   (postRepository = PostRepositoryPort, { ok } = WebPort) =>
   async () => {
     const persistedPosts = await postRepository.listAll();
+
     return ok(persistedPosts);
   };
 

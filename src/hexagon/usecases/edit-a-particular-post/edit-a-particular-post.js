@@ -7,8 +7,11 @@ const editAParticularPostUseCase =
   (postRepository = PostRepositoryPort, { badRequest, ok } = WebPort) =>
   async ({ payload = EditAParticularPostDto }) => {
     validateReceivedPublication(payload.data);
+
     const postHasUpdated = await postRepository.update(payload);
+
     if (!postHasUpdated) return badRequest("The publication was not found");
+
     return ok("Post has been updated");
   };
 

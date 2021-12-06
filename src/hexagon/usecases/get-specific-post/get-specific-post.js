@@ -7,10 +7,13 @@ const getSpecificPostUseCase =
   (postRepository = PostRepositoryPort, { badRequest, ok } = WebPort) =>
   async ({ payload = GetSpecificPostDto }) => {
     validateReceivedPublication(payload);
+
     const persistedPost = await postRepository.listOne(payload);
+
     if (!persistedPost) {
       return badRequest("Post not found");
     }
+
     return ok(persistedPost);
   };
 

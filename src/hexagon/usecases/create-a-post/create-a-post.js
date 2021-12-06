@@ -7,7 +7,9 @@ const createAPostUseCase =
   (postRepository = PostRepositoryPort, { ok } = WebPort) =>
   async ({ payload = CreateAPostDto }) => {
     validateReceivedPublication(payload);
+
     const createdPost = await postRepository.create(payload);
+
     return ok(createdPost);
   };
 
