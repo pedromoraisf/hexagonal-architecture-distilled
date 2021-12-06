@@ -1,5 +1,5 @@
-const GetSpecificPostDTO = {
+const GetSpecificPostDto = {
   id: ""
 };
 
-module.exports = { GetSpecificPostDTO };
+module.exports = { GetSpecificPostDto };

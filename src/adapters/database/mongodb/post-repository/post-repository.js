@@ -1,5 +1,5 @@
 const { nanoid } = require("nanoid");
-const { PostToCreateDTO, PostToGetDTO, PostToEditDTO } = require("@/hexagon/ports/driven/for-post-repository/dto");
+const { PostToCreateDto, PostToGetDto, PostToEditDto } = require("@/hexagon/ports/driven/for-post-repository/dto");
 const { mongoHelper } = require("@/adapters/database/mongodb/helpers");
 const { makeErrorPattern, Errors } = require("@/shared/error");
 
@@ -8,7 +8,7 @@ const PostRepositoryMongoDbAdapter = () => ({
   async getCollection() {
     return mongoHelper.getCollection(this.COLLECTION_NAME);
   },
-  async create(payload = PostToCreateDTO) {
+  async create(payload = PostToCreateDto) {
     return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
       const postToInsert = {
@@ -25,7 +25,7 @@ const PostRepositoryMongoDbAdapter = () => ({
       return collection.find({}).toArray();
     });
   },
-  async update(payload = PostToEditDTO) {
+  async update(payload = PostToEditDto) {
     return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
       const updatedValue = await collection.findOneAndUpdate(
@@ -39,7 +39,7 @@ const PostRepositoryMongoDbAdapter = () => ({
       return !!updatedValue.value;
     });
   },
-  async listOne(payload = PostToGetDTO) {
+  async listOne(payload = PostToGetDto) {
     return this.handleErrorDecorator(async () => {
       const collection = await this.getCollection();
       const findedPost = await collection.findOne({

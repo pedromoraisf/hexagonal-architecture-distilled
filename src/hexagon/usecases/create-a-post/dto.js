@@ -1,6 +1,6 @@
-const CreateAPostDTO = {
+const CreateAPostDto = {
   title: "",
   content: ""
 };
 
-module.exports = { CreateAPostDTO };
+module.exports = { CreateAPostDto };

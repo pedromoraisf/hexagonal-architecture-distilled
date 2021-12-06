@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
-const { PostToCreateDTO, PostToEditDTO, PostToGetDTO } = require("./dto");
+const { PostToCreateDto, PostToEditDto, PostToGetDto } = require("./dto");
 
 const PostRepositoryPort = {
-  create: async (payload = PostToCreateDTO) => {
+  create: async (payload = PostToCreateDto) => {
     throw new Error("NOT_IMPLEMENTED");
   },
   listAll: async () => {
     throw new Error("NOT_IMPLEMENTED");
   },
-  update: async (payload = PostToEditDTO) => {
+  update: async (payload = PostToEditDto) => {
     throw new Error("NOT_IMPLEMENTED");
   },
-  listOne: async (payload = PostToGetDTO) => {
+  listOne: async (payload = PostToGetDto) => {
     throw new Error("NOT_IMPLEMENTED");
   }
 };

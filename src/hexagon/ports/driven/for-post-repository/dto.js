@@ -1,9 +1,9 @@
-const PostToCreateDTO = {
+const PostToCreateDto = {
   title: "",
   content: ""
 };
 
-const PostToEditDTO = {
+const PostToEditDto = {
   id: "",
   data: {
     title: "",
@@ -11,8 +11,8 @@ const PostToEditDTO = {
   }
 };
 
-const PostToGetDTO = {
+const PostToGetDto = {
   id: ""
 };
 
-module.exports = { PostToCreateDTO, PostToEditDTO, PostToGetDTO };
+module.exports = { PostToCreateDto, PostToEditDto, PostToGetDto };

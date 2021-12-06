@@ -1,4 +1,4 @@
 const PostRepositoryPort = require("./post-repository");
-const { PostToCreateDTO } = require("./dto");
+const { PostToCreateDto } = require("./dto");
 
-module.exports = { PostRepositoryPort, PostToCreateDTO };
+module.exports = { PostRepositoryPort, PostToCreateDto };
