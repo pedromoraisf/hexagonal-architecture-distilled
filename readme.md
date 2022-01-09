@@ -13,6 +13,8 @@
 </p>
 <br />
 
+```ℹ️ This publication is being maintained right now. This means that some topics may be out of date.```
+
 ## Presentation
 
 This is a sample repository for my "Hexagonal Architecture Distilled in JavaScript" publication.
