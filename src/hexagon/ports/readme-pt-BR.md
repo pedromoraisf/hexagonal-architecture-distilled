@@ -10,51 +10,35 @@
 </p>
 <br />
 
-## Visão conceitual
-
-Seguindo uma das motivações de Alistair Cockburn, a indústria cultivou escritas por códigos de casos de uso que teriam um vasto conhecimento sobre suas tecnologias ou atores. 
-
-O emaranhamento entre regras de negócio e interações com essas entidades seria o grande problema, onde a visão de lado "esquerdo" e "direito" da aplicação pode ser modificada por um olhar de "dentro" e "fora" do aplicativo.
-
-Considerando a afirmação acima, as Portas entram como uma demarcação de qual lugar no código teria interação com o mundo externo.
-
-A ideia em torno de Porta vem da mesma visão da porta do sistema operacional ou de aparelhos eletrônicos. Protocolos que abrem margem para conexão de dispositivos que respeitem seu protocolo (a.k.a Adaptador).
-
 ## Olhar arquitetural
 
-Pensando na arquitetura do sistema como um todo, Portas estariam diretamente inclusas na parte de dentro (regras de negócio, casos de uso, etc.), fornecendo uma definição clara dos dados que entram, os que retornam e as funções que podem ser usadas.
+Portas são o limite arquitetural do Hexágono. 
+
+Seguindo a visão conceitual descrita na publicação que direciona este repositório, os arquivos que contém o padrão porta estão contidos respectivamente nas pastas "driven" e "driver".
+
+Observe a imagem abaixo, onde uma porta primária e outra secundária estão do mesmo lado. A intenção seria apenas para mostrar de uma forma sintetizada, os adaptadores entrando em contato com a porta.
+
+Conceitualmente, sabemos que as portas estavam em "lados diferentes".
 
 <p align="center">
 <img src="./../../../docs/ports-cut.png" height="300">
 </p>
 
-Geralmente são descritas por Interfaces Abstratas - tanto o recurso de linguagens orientadas a objetos quanto dependências injetadas por parâmetros ou funções de ordem maior como foi feito nos exemplos desse repositório.
-
-### Qual a quantidade ideal de portas?
-
-Não existe uma definição quanto a isto. Alistair revela que não é ideal ter uma visão extrema, onde de um lado teríamos apenas uma porta para entrada de dados e outra para saída, quanto uma porta para cada caso de uso.
-
-Geralmente as Portas são definidas de acordo com sua posição conceitual no código. Por exemplo, se o código recebe certos dados, realiza o tratamento internamente e comunica uma API externa para o tráfego dos mesmos, teríamos uma porta para comunicação com essa API.
-
-Nesse projeto, usei o padrão de Repositórios para encapsulamento de operações com o banco de dados por coleções - veja a referência no final.
-
-Nesse caso, cada repositório tem uma Porta em específico.
-
-Em um projeto que não tenha um padrão como este, uma Porta para o banco de dados como um todo pode ser suficiente.
+Geralmente, portas são representadas como Interfaces Abstratas - tanto o recurso de linguagens orientadas a objetos quanto dependências injetadas por parâmetros ou funções de ordem maior, como exemplifiquei nesse repositório.
 
 ## Observando na prática
 
-Olhando para as pastas "database" e "http-framework" observa-se a existência de duas Portas.
+Optei por uma abordagem onde utilizo um dos extremos para definição de portas - uma porta primária para todas as entradas.
 
-Por mais que exista uma pasta "database" genérica, defino a Porta de acordo com os repositórios. Com o surgimento de novos, Portas equivalentes são adicionadas.
+Sou tentado a seguir essa implementação pelo fato dos adaptadores dessa porta - express e mock - serem responsáveis por injetar as entradas de suas respectivas tecnologias.
 
-O objeto de exemplo no arquivo "http-framework.js" contém a demarcação dos métodos que essa Porta fornece.
+Implementando em uma linguagem mais orientada a objetos, poderia ser trivial definir portas para o contato com o código contido dentro do Hexágono. Na publicação pai deste repositório, adiciono o link para um repositório que contém estes exemplos.
 
-Optei por essa implementação pelo fato do JavaScript não ter o recurso de Interfaces. Nesse caso, o objeto ajuda o IntelliSense do meu editor de código a fornecer a lista de métodos da Porta quando referenciada no Caso de Uso.
+Outra decisão curiosa foi a forma de representação das portas. Optei por essa implementação pelo fato do JavaScript não ter o recurso de Interfaces. Nesse caso, o objeto ajuda o IntelliSense do meu editor de código a fornecer a lista de métodos da porta quando referenciada no código cliente.
 
-Perceba que não existe uma implementação ou apego tecnológico por como o método irá fazer. Com o nome do método autoexplicativo, revelo apenas qual a sua utilidade.
+Perceba que não existe uma descrição ou apego tecnológico por como será feito. Com o nome da porta autoexplicativa, revelo apenas qual a sua intenção.
 
-Dessa forma, tendo a tecnologia externa desacoplada do código de Caso de Uso como descrito no tópico <a href="#visao-arquitetural">Visão Arquitetural</a>, abre-se margem para multiplas implementações de Adaptadores que respeitem o protocolo fornecido pela Porta.
+Dessa forma, tendo a tecnologia externa desacoplada do código contido no Hexágono, como descrito no tópico <a href="#olhar-arquitetural">Olhar Arquitetural</a>, abre-se margem para multiplas implementações de adaptadores que respeitem o protocolo fornecido pela porta.
 
 ## Referências
 

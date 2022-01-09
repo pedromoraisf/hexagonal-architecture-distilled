@@ -10,51 +10,35 @@
 </p>
 <br />
 
-## Conceptual vision
-
-Following one of Alistair Cockburn's motivations, the industry has cultivated use case code writings that would have vast knowledge about their technologies or actors.
-
-The entanglement between business rules and interactions with these entities would be the big problem, where the "left" and "right" side view of the application can be modified by an "inside" and "outside" look of the application.
-
-Considering the above statement, the Ports enter as a demarcation of which place in the code would interact with the outside world.
-
-The idea around Port comes from the same vision of the operating system or electronics port. Protocols that make room for the connection of devices that respect their protocol (a.k.a Adapter).
-
 ## Architectural look
 
-Thinking about the architecture of the system as a whole, Ports would be directly included inside (business rules, use cases, etc.), providing a clear definition of the data that comes in, what data is returned and the functions that can be used.
+Ports are the architectural boundary of the Hexagon. 
+
+Following the conceptual view described in the publication that directs this repository, the files containing the pattern port are contained respectively in the "driven" and "driver" folders.
+
+Look at the image below, where a primary and a secondary port are on the same side. The intention would just be to show in a synthesized way the adapters coming in contact with the port.
+
+Conceptually, we know that the ports were on "different sides".
 
 <p align="center">
 <img src="./../../../docs/ports-cut.png" height="300">
 </p>
 
-They are usually described by Abstract Interfaces - both the feature of object-oriented languages or dependencies injected by parameters or higher order functions as was done in the examples in this repository.
-
-### What is the ideal number of ports?
-
-There is no definition for this. Alistair reveals that it is not ideal to have an extreme view, where on the one hand we would have only one port for data input and the other for output, as well as one port for each use case.
-
-Ports are usually defined according to their conceptual position in the code. For example, if the code receives certain data, performs the processing internally and communicates an external API, we would have a port for communication with this API.
-
-In this project, I used the Repositories pattern for encapsulating database operations by collections - see the reference at the end.
-
-In this case, each repository has a specific Port.
-
-In a project that doesn't have a standard like this, one Port to the database as a whole may be sufficient.
+Generally, ports are represented as Abstract Interfaces - both the resource of object-oriented languages and dependencies injected by parameters or higher-order functions, as I've exemplified in this repository.
 
 ## Observing in practice 
 
-Looking at the "database" and "http-framework" folders, there are two Ports.
+I opted for an approach where I use one of the extremes to define ports - a primary port for all inputs.
 
-As much as there is a generic "database" folder, I define the Port according to the repositories. As new ones appear, equivalent Ports are added.
+I'm tempted to follow this implementation because the adapters on this port - express and mock - are responsible for injecting inputs from their respective technologies.
 
-The example object in the "http-framework.js" file contains the demarcation of the methods that this Port provides.
+Implementing in a more object-oriented language, it could be trivial to define ports for the contact with the code contained inside the Hexagon. In the parent publication of this repository, I add the link to a repository that contains these examples.
 
-I chose this implementation because JavaScript doesn't have the Interfaces feature. In this case, the object helps my code editor's IntelliSense provide the list of methods of the Port when referenced in the Use Case.
+Another curious decision was the form of representation of the ports. I chose this implementation because JavaScript doesn't have the Interfaces feature. In this case, the object helps my code editor's IntelliSense provide the list of methods of the port when referenced in client code.
 
-Realize that there is no implementation or technological attachment to how the method will do. With the self-explanatory method name, I just reveal its usefulness.
+Realize that there is no description or technological attachment for how it will be done. With the name of the self-explanatory port, I just reveal its intention.
 
-Thus, having the external technology decoupled from the Use Case code as described in the <a href="#architectural-look">Architectural Look</a> topic, there is room for multiple implementations of Adapters that respect the protocol provided by the Port.
+In this way, having the external technology decoupled from the code contained in the Hexagon, as described in the <a href="#architectural-look">Architectural Look</a> topic, there is room for multiple implementations of adapters that respect the protocol provided by the port.
 
 ## References
 
