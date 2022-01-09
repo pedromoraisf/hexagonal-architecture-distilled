@@ -25,7 +25,7 @@ A ideia em torno de Porta vem da mesma visão da porta do sistema operacional ou
 Pensando na arquitetura do sistema como um todo, Portas estariam diretamente inclusas na parte de dentro (regras de negócio, casos de uso, etc.), fornecendo uma definição clara dos dados que entram, os que retornam e as funções que podem ser usadas.
 
 <p align="center">
-<img src="./../../docs/ports-cut.png" height="300">
+<img src="./../../../docs/ports-cut.png" height="300">
 </p>
 
 Geralmente são descritas por Interfaces Abstratas - tanto o recurso de linguagens orientadas a objetos quanto dependências injetadas por parâmetros ou funções de ordem maior como foi feito nos exemplos desse repositório.
