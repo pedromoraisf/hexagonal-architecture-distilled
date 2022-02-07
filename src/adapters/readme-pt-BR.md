@@ -34,7 +34,7 @@ Em vez do código cliente apontar sua dependência direta pro ORM, Query Builder
 
 ## Olhar arquitetural
 
-Considerando a explicação de [Portas](./../ports/readme-pt-BR.md), os Adapters seriam a implementação do protocolo definido na Porta.
+Considerando a explicação de [Portas](./../hexagon/ports/readme-pt-BR.md), os Adapters seriam a implementação do protocolo definido na Porta.
 
 Uma das mágicas que aparecem na junção desses dois conceitos na Arquitetura Hexagonal, seria a de multiplas implementações do mesmo protocolo.
 
